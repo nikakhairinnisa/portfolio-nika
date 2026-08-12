@@ -19,7 +19,6 @@
         ::-webkit-scrollbar-track { background: #ede9fe; border-radius: 50px; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #7c3aed, #a855f7); border-radius: 50px; }
         
-        /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
             top: 20px;
@@ -105,7 +104,6 @@
             margin-bottom: 50px;
         }
         
-        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -253,7 +251,6 @@
         }
         .hero-image img:hover { transform: scale(1.02); }
         
-        /* ===== TENTANG ===== */
         #tentang { background: radial-gradient(circle at top right, #f3e8ff, #ffffff); }
         .about-container {
             display: flex;
@@ -360,7 +357,6 @@
             line-height: 1.4;
         }
         
-        /* ===== PENGALAMAN ===== */
         #pengalaman { background: #ffffff; }
         .experience-card {
             background: white;
@@ -412,7 +408,6 @@
             margin-top: 2px;
         }
         
-        /* ===== KEAHLIAN ===== */
         #keahlian { background: radial-gradient(circle at bottom left, #f5f3ff, #ffffff); }
         .skills-container {
             display: grid;
@@ -505,14 +500,12 @@
         .skill-tag:hover {
             transform: scale(1.05) translateY(-3px);
         }
-        /* Warna berbeda untuk setiap tag */
         .skill-tag:nth-child(1) { background: #ede9fe; color: #7c3aed; }
         .skill-tag:nth-child(2) { background: #fce4ec; color: #c62828; }
         .skill-tag:nth-child(3) { background: #e3f2fd; color: #0d47a1; }
         .skill-tag:nth-child(4) { background: #e8f5e9; color: #2e7d32; }
         .skill-tag:nth-child(5) { background: #fff3e0; color: #e65100; }
         
-        /* ===== PROYEK ===== */
         #proyek { background: #ffffff; }
         .projects-grid {
             display: grid;
@@ -619,7 +612,6 @@
         }
         .btn-view-project i { margin-right: 8px; }
         
-        /* ===== SERTIFIKAT - 5 KOLOM DENGAN FOTO ===== */
         #sertifikat { background: radial-gradient(circle at top left, #f5f3ff, #ffffff); }
         .cert-grid {
             display: grid;
@@ -665,10 +657,6 @@
         .cert-card:hover .cert-image img {
             transform: scale(1.05);
         }
-        .cert-icon {
-            font-size: 2.8rem;
-            display: block;
-        }
         .cert-card h3 {
             font-size: 1rem;
             color: #1e1b4b;
@@ -710,7 +698,6 @@
         }
         .btn-cert-detail i { margin-right: 6px; }
         
-        /* ===== MODAL SERTIFIKAT ===== */
         .modal-cert-overlay {
             display: none;
             position: fixed;
@@ -841,9 +828,6 @@
             transform: translateY(-3px);
         }
         
-        /* ============================================================
-        KONTAK - 4 KOLOM DENGAN WARNA BERBEDA
-        ============================================================ */
         #kontak { background: linear-gradient(135deg, #fdfcff 0%, #ede9fe 100%); }
         .contact-grid {
             display: grid;
@@ -905,46 +889,17 @@
             transform: translateX(5px);
         }
         
-        /* ===== EMAIL - BIRU ===== */
-        .contact-card-email {
-            border-color: #3b82f6;
-        }
-        .contact-card-email:hover {
-            border-color: #2563eb;
-            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
-        }
+        .contact-card-email { border-color: #3b82f6; }
+        .contact-card-email:hover { border-color: #2563eb; box-shadow: 0 25px 50px rgba(59,130,246,0.15); }
         .contact-card-email .icon { color: #3b82f6; }
         .contact-card-email h4 { color: #2563eb; }
-        .contact-link-email {
-            color: #3b82f6;
-            border-color: #93c5fd;
-        }
-        .contact-link-email:hover {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            border-color: #3b82f6;
-        }
+        .contact-link-email { color: #3b82f6; border-color: #93c5fd; }
+        .contact-link-email:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; border-color: #3b82f6; }
         
-        /* ===== WHATSAPP - HIJAU ===== */
-        .contact-card-wa {
-            border-color: #25D366;
-            background: linear-gradient(135deg, #ffffff, #f0faf0);
-        }
-        .contact-card-wa:hover {
-            border-color: #128C7E;
-            box-shadow: 0 25px 50px rgba(37, 211, 102, 0.2);
-        }
-        .contact-card-wa .icon-wa {
-            font-size: 3.2rem;
-            display: block;
-            margin-bottom: 12px;
-            color: #25D366;
-            animation: waPulse 2s ease-in-out infinite;
-        }
-        @keyframes waPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
+        .contact-card-wa { border-color: #25D366; background: linear-gradient(135deg, #ffffff, #f0faf0); }
+        .contact-card-wa:hover { border-color: #128C7E; box-shadow: 0 25px 50px rgba(37,211,102,0.2); }
+        .contact-card-wa .icon-wa { font-size: 3.2rem; display: block; margin-bottom: 12px; color: #25D366; animation: waPulse 2s ease-in-out infinite; }
+        @keyframes waPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
         .contact-card-wa h4 { color: #128C7E; }
         .contact-card-wa p { font-weight: 600; font-size: 1rem; letter-spacing: 0.5px; }
         .contact-link-wa {
@@ -957,57 +912,27 @@
             padding: 10px 35px;
             border-radius: 50px;
             transition: 0.4s;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            box-shadow: 0 8px 25px rgba(37,211,102,0.3);
             border: none;
         }
-        .contact-link-wa:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
-        }
+        .contact-link-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,0.5); }
         .contact-link-wa i { margin-right: 8px; transition: 0.3s; }
         .contact-link-wa:hover i { transform: scale(1.2); }
         
-        /* ===== GITHUB - HITAM/ABU-ABU ===== */
-        .contact-card-github {
-            border-color: #6b7280;
-        }
-        .contact-card-github:hover {
-            border-color: #1f2937;
-            box-shadow: 0 25px 50px rgba(31, 41, 55, 0.15);
-        }
+        .contact-card-github { border-color: #6b7280; }
+        .contact-card-github:hover { border-color: #1f2937; box-shadow: 0 25px 50px rgba(31,41,55,0.15); }
         .contact-card-github .icon { color: #1f2937; }
         .contact-card-github h4 { color: #1f2937; }
-        .contact-link-github {
-            color: #1f2937;
-            border-color: #9ca3af;
-        }
-        .contact-link-github:hover {
-            background: linear-gradient(135deg, #1f2937, #111827);
-            color: white;
-            border-color: #1f2937;
-        }
+        .contact-link-github { color: #1f2937; border-color: #9ca3af; }
+        .contact-link-github:hover { background: linear-gradient(135deg, #1f2937, #111827); color: white; border-color: #1f2937; }
         
-        /* ===== LINKEDIN - BIRU TUA ===== */
-        .contact-card-linkedin {
-            border-color: #0a66c2;
-        }
-        .contact-card-linkedin:hover {
-            border-color: #004182;
-            box-shadow: 0 25px 50px rgba(10, 102, 194, 0.15);
-        }
+        .contact-card-linkedin { border-color: #0a66c2; }
+        .contact-card-linkedin:hover { border-color: #004182; box-shadow: 0 25px 50px rgba(10,102,194,0.15); }
         .contact-card-linkedin .icon { color: #0a66c2; }
         .contact-card-linkedin h4 { color: #004182; }
-        .contact-link-linkedin {
-            color: #0a66c2;
-            border-color: #8bb9e8;
-        }
-        .contact-link-linkedin:hover {
-            background: linear-gradient(135deg, #0a66c2, #004182);
-            color: white;
-            border-color: #0a66c2;
-        }
+        .contact-link-linkedin { color: #0a66c2; border-color: #8bb9e8; }
+        .contact-link-linkedin:hover { background: linear-gradient(135deg, #0a66c2, #004182); color: white; border-color: #0a66c2; }
         
-        /* ===== FOOTER ===== */
         footer {
             background: linear-gradient(135deg, #2e1065, #4c1d95);
             color: #ffffff;
@@ -1016,34 +941,10 @@
             border-top: 3px solid #7c3aed;
         }
         footer .footer-content { max-width: 800px; margin: 0 auto; }
-        footer h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #ffffff;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-        footer .footer-desc {
-            color: #c4b5fd;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
-            max-width: 450px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        footer .divider {
-            width: 50px;
-            height: 2px;
-            background: #a78bfa;
-            margin: 0 auto 15px;
-            border-radius: 10px;
-        }
-        footer .copyright {
-            font-size: 0.75rem;
-            color: #8b7bb8;
-            letter-spacing: 0.5px;
-        }
+        footer h3 { font-size: 1.5rem; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; margin-bottom: 8px; }
+        footer .footer-desc { color: #c4b5fd; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; max-width: 450px; margin-left: auto; margin-right: auto; }
+        footer .divider { width: 50px; height: 2px; background: #a78bfa; margin: 0 auto 15px; border-radius: 10px; }
+        footer .copyright { font-size: 0.75rem; color: #8b7bb8; letter-spacing: 0.5px; }
         footer .social-icons {
             display: flex;
             justify-content: center;
@@ -1058,18 +959,13 @@
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255,255,255,0.08);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        footer .social-icons a:hover {
-            color: #ffffff;
-            background: rgba(124, 58, 237, 0.4);
-            transform: translateY(-3px);
-        }
+        footer .social-icons a:hover { color: #ffffff; background: rgba(124,58,237,0.4); transform: translateY(-3px); }
         
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero h1 { font-size: 3.5rem; }
             .hero-image img { width: 300px; }
@@ -1082,37 +978,12 @@
             .contact-grid { grid-template-columns: repeat(2, 1fr); max-width: 600px; }
             .section-title { font-size: 2.5rem; }
         }
-        
         @media (max-width: 768px) {
-            .navbar {
-                padding: 10px 20px;
-                gap: 0;
-                top: 10px;
-                width: 92%;
-                justify-content: space-between;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                background: white;
-                position: absolute;
-                top: 65px;
-                left: 0;
-                right: 0;
-                padding: 20px;
-                border-radius: 20px;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-                gap: 15px;
-                border: 1px solid #e9d5ff;
-            }
+            .navbar { padding: 10px 20px; gap: 0; top: 10px; width: 92%; justify-content: space-between; }
+            .nav-links { display: none; flex-direction: column; background: white; position: absolute; top: 65px; left: 0; right: 0; padding: 20px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); gap: 15px; border: 1px solid #e9d5ff; }
             .nav-links.open { display: flex; }
             .hamburger { display: flex; }
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding: 120px 5% 60px;
-                gap: 30px;
-            }
+            .hero { flex-direction: column; text-align: center; padding: 120px 5% 60px; gap: 30px; }
             .hero h1 { font-size: 2.8rem; }
             .hero p { margin-left: auto; margin-right: auto; max-width: 100%; }
             .stats-grid { margin-left: auto; margin-right: auto; max-width: 100%; }
@@ -1135,7 +1006,6 @@
             .welcome-badge { font-size: 0.9rem; padding: 10px 25px; }
             .skill-icon { font-size: 2.2rem; padding: 14px; }
         }
-        
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
             .hero h2 { font-size: 1.1rem; }
@@ -1148,8 +1018,6 @@
             .contact-card .icon { font-size: 2.2rem; }
             .contact-card-wa .icon-wa { font-size: 2.6rem; }
             .contact-card-wa .contact-link-wa { padding: 8px 20px; font-size: 0.8rem; }
-            footer .social-icons { gap: 10px; }
-            footer .social-icons a { width: 30px; height: 30px; font-size: 0.9rem; }
             .btn-view-project { padding: 10px 20px; font-size: 0.8rem; }
             .btn-cert-detail { padding: 6px 16px; font-size: 0.7rem; }
             .cert-image { height: 120px; }
@@ -1220,8 +1088,8 @@
             <a href="#kontak" class="btn-primary"><i class="fas fa-paper-plane"></i> Mari Terhubung!</a>
         </div>
         <div class="hero-image" data-aos="fade-left">
-            <!-- ===== FOTO NIKA - GOOGLE DRIVE ===== -->
-            <img src="https://drive.google.com/uc?export=view&id=1tuE_hA-JT43v4Ch95sV4ya5EdwO4i85A" alt="Nika Khairinnisa">
+            <!-- ===== FOTO NIKA ===== -->
+            <img src="https://i.imgur.com/kolaAjC.png" alt="Nika Khairinnisa">
         </div>
     </section>
 
@@ -1336,7 +1204,7 @@
             <!-- Proyek 1: Wisata -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1BncqddgLLl0a-24z1E7cUK7jIYUsqlAr" alt="Website Wisata Indonesia">
+                    <img src="https://i.imgur.com/Izzj35f.png" alt="Website Wisata Indonesia">
                     <span class="overlay-icon">🔍</span>
                 </div>
                 <h3>Website Wisata Indonesia</h3>
@@ -1350,7 +1218,7 @@
             <!-- Proyek 2: Restoran -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1uKbckExZVR-qqLQ3H3LtqWSDJ9T3rMh3" alt="Restoran Sakura">
+                    <img src="https://i.imgur.com/91uIWyL.png" alt="Restoran Sakura">
                     <span class="overlay-icon">🔍</span>
                 </div>
                 <h3>Restoran Sakura</h3>
@@ -1364,7 +1232,7 @@
             <!-- Proyek 3: Voly -->
             <div class="project-card">
                 <div class="project-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1Cv8t6faZVYKc-ZLcZ40PhRQjFhBWkA-n" alt="Website Perlengkapan Voly">
+                    <img src="https://i.imgur.com/kfom9iO.png" alt="Website Perlengkapan Voly">
                     <span class="overlay-icon">🔍</span>
                 </div>
                 <h3>Website Perlengkapan Voly</h3>
@@ -1388,14 +1256,14 @@
             <!-- Sertifikat 1: Java -->
             <div class="cert-card">
                 <div class="cert-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1oI8lbQSWaTnZ_HyrGj9mvjVB0sGzbHpX" alt="Sertifikat Java">
+                    <img src="https://i.imgur.com/BXOUDpf.png" alt="Sertifikat Java">
                 </div>
                 <h3>Sertifikat Kompetensi Fundamental Java</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 20 Desember 2024</p>
                 <p class="cert-desc">Menunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (<b>OOP</b>) menggunakan bahasa Java.</p>
                 <button class="btn-cert-detail" onclick="openCertModal(
                     'Sertifikat Kompetensi Fundamental Java',
-                    'https://drive.google.com/uc?export=view&id=1oI8lbQSWaTnZ_HyrGj9mvjVB0sGzbHpX',
+                    'https://i.imgur.com/BXOUDpf.png',
                     'PT. Humma Teknologi Indonesia | 20 Desember 2024',
                     'Menunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (OOP) menggunakan bahasa Java.'
                 )">
@@ -1406,14 +1274,14 @@
             <!-- Sertifikat 2: Front End -->
             <div class="cert-card">
                 <div class="cert-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1T-4tE2yk0iQeyQTptq7N0cUO7i81SwgV" alt="Sertifikat Front End">
+                    <img src="https://i.imgur.com/HIxHTKx.jpeg" alt="Sertifikat Front End">
                 </div>
                 <h3>Sertifikat Front End Web</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
                 <p class="cert-desc">Menunjukkan penguasaan dalam pembuatan antarmuka web yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Bootstrap.</p>
                 <button class="btn-cert-detail" onclick="openCertModal(
                     'Sertifikat Front End Web',
-                    'https://drive.google.com/uc?export=view&id=1T-4tE2yk0iQeyQTptq7N0cUO7i81SwgV',
+                    'https://i.imgur.com/HIxHTKx.jpeg',
                     'PT. Humma Teknologi Indonesia | 14 Juli 2025',
                     'Menunjukkan penguasaan dalam pembuatan antarmuka web yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Bootstrap.'
                 )">
@@ -1424,14 +1292,14 @@
             <!-- Sertifikat 3: Skill Passport -->
             <div class="cert-card">
                 <div class="cert-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1bmGjqz0vz_LnIu0aQ7l6Wz1BRerOghfU" alt="Skill Passport">
+                    <img src="https://i.imgur.com/LjxFhJf.png" alt="Skill Passport">
                 </div>
                 <h3>Skill Passport Front-End Web Developer</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
                 <p class="cert-desc">Menunjukkan penguasaan dalam pengembangan web front-end untuk membangun dan merancang antarmuka website yang statis dan dinamis.</p>
                 <button class="btn-cert-detail" onclick="openCertModal(
                     'Skill Passport Front-End Web Developer',
-                    'https://drive.google.com/uc?export=view&id=1bmGjqz0vz_LnIu0aQ7l6Wz1BRerOghfU',
+                    'https://i.imgur.com/LjxFhJf.png',
                     'PT. Humma Teknologi Indonesia | 14 Juli 2025',
                     'Menunjukkan penguasaan dalam pengembangan web front-end untuk membangun dan merancang antarmuka website yang statis dan dinamis.'
                 )">
@@ -1442,14 +1310,14 @@
             <!-- Sertifikat 4: Magang -->
             <div class="cert-card">
                 <div class="cert-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1HBR6_y2JtEG5hhCb1Mzj1qnPO52OZf5d" alt="Sertifikat Magang">
+                    <img src="https://i.imgur.com/eniZPH1.png" alt="Sertifikat Magang">
                 </div>
                 <h3>Apprenticeship Program - Quality Assurance</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
                 <p class="cert-desc">Telah berhasil menyelesaikan program magang (<b>Apprenticeship</b>) di divisi <b>Quality Assurance</b> dengan predikat memuaskan.</p>
                 <button class="btn-cert-detail" onclick="openCertModal(
                     'Apprenticeship Program - Quality Assurance',
-                    'https://drive.google.com/uc?export=view&id=1HBR6_y2JtEG5hhCb1Mzj1qnPO52OZf5d',
+                    'https://i.imgur.com/eniZPH1.png',
                     'PT. Humma Teknologi Indonesia | 2026',
                     'Telah berhasil menyelesaikan program magang (Apprenticeship) di divisi Quality Assurance dengan predikat memuaskan.'
                 )">
@@ -1460,14 +1328,14 @@
             <!-- Sertifikat 5: QA Intermediate -->
             <div class="cert-card">
                 <div class="cert-image">
-                    <img src="https://drive.google.com/uc?export=view&id=1TC0K90pWg4kBF9iBbuDxQAhCJ0pMYgZ3" alt="Sertifikat QA">
+                    <img src="https://i.imgur.com/rK94sUo.png" alt="Sertifikat QA">
                 </div>
                 <h3>Quality Assurance Intermediate</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
                 <p class="cert-desc">Penghargaan atas kontribusi dalam pembuatan <b>Manajemen Tracking Alumni (Tracer Study)</b> selama magang. Mendapat predikat <b>Quality Assurance Tingkat Intermediate</b>.</p>
                 <button class="btn-cert-detail" onclick="openCertModal(
                     'Quality Assurance Intermediate',
-                    'https://drive.google.com/uc?export=view&id=1TC0K90pWg4kBF9iBbuDxQAhCJ0pMYgZ3',
+                    'https://i.imgur.com/rK94sUo.png',
                     'PT. Humma Teknologi Indonesia | 2026',
                     'Penghargaan atas kontribusi dalam pembuatan Manajemen Tracking Alumni (Tracer Study) selama magang. Mendapat predikat Quality Assurance Tingkat Intermediate.'
                 )">
@@ -1484,7 +1352,7 @@
         <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Saya terbuka untuk diskusi teknis, kolaborasi proyek, atau sekadar berbagi pengalaman</p>
         <div class="contact-grid" data-aos="fade-up" data-aos-delay="200">
             
-            <!-- EMAIL -->
+            <!-- EMAIL - BIRU -->
             <div class="contact-card contact-card-email">
                 <span class="icon">📧</span>
                 <h4>Email</h4>
@@ -1494,7 +1362,7 @@
                 </a>
             </div>
 
-            <!-- WHATSAPP -->
+            <!-- WHATSAPP - HIJAU -->
             <div class="contact-card contact-card-wa">
                 <span class="icon-wa">
                     <i class="fab fa-whatsapp"></i>
@@ -1506,7 +1374,7 @@
                 </a>
             </div>
 
-            <!-- GITHUB -->
+            <!-- GITHUB - HITAM -->
             <div class="contact-card contact-card-github">
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <h4>GitHub</h4>
@@ -1516,7 +1384,7 @@
                 </a>
             </div>
 
-            <!-- LINKEDIN -->
+            <!-- LINKEDIN - BIRU TUA -->
             <div class="contact-card contact-card-linkedin">
                 <span class="icon"><i class="fab fa-linkedin-in"></i></span>
                 <h4>LinkedIn</h4>
