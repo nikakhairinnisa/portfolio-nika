@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        /* ===== RESET & GLOBAL ===== */
+        /* ===== RESET ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
@@ -16,6 +16,7 @@
             color: #1e1b4b;
             overflow-x: hidden;
         }
+
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #ede9fe; border-radius: 50px; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #7c3aed, #a855f7); border-radius: 50px; }
@@ -39,7 +40,7 @@
             transition: 0.3s;
         }
         .navbar:hover { box-shadow: 0 12px 40px rgba(126, 34, 206, 0.25); }
-        .nav-links { display: flex; align-items: center; gap: 25px; }
+        .nav-links { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
         .nav-link {
             color: #2e1065;
             text-decoration: none;
@@ -133,22 +134,19 @@
             display: inline-block;
             background: linear-gradient(90deg, #7c3aed, #a855f7);
             color: white;
-            padding: 12px 35px;
+            padding: 8px 28px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 2px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 30px;
-            box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
             animation: pulseGlow 2s infinite;
-            border: 2px solid rgba(255,255,255,0.2);
         }
-        .welcome-badge i { margin-right: 10px; animation: starSpin 4s linear infinite; }
-        @keyframes starSpin { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
         @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 30px rgba(124,58,237,0.4), 0 0 60px rgba(124,58,237,0.2); transform: scale(1); }
-            50% { box-shadow: 0 0 50px rgba(124,58,237,0.6), 0 0 80px rgba(124,58,237,0.3); transform: scale(1.03); }
+            0%, 100% { box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(124, 58, 237, 0.5); }
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
@@ -207,14 +205,18 @@
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(124,58,237,0.5); }
         .btn-primary i { margin-right: 10px; }
         .hero-image { flex-shrink: 0; z-index: 1; }
-        .hero-image img {
+        .hero-image .avatar-placeholder {
             width: 380px;
+            height: 380px;
             border-radius: 30px;
+            background: linear-gradient(135deg, #ede9fe, #f3e8ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
             box-shadow: 0 25px 50px rgba(126,34,206,0.2);
             border: 5px solid white;
-            transition: 0.3s;
         }
-        .hero-image img:hover { transform: scale(1.02); }
 
         /* ===== TENTANG ===== */
         #tentang { background: radial-gradient(circle at top right, #f3e8ff, #ffffff); }
@@ -269,7 +271,6 @@
             justify-content: center;
         }
         .about-detail p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 15px; }
-        .about-detail p:last-of-type { margin-bottom: 20px; }
         .about-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -286,7 +287,7 @@
         }
         .about-grid-item:hover { background: #ede9fe; transform: scale(1.03); }
         .about-grid-item h4 { color: #6d28d9; font-size: 1rem; margin-bottom: 2px; }
-        .about-grid-item p { font-size: 0.75rem; color: #6b7280; margin: 0; line-height: 1.4; }
+        .about-grid-item p { font-size: 0.75rem; color: #6b7280; margin: 0; }
 
         /* ===== PENGALAMAN ===== */
         #pengalaman { background: #ffffff; }
@@ -345,12 +346,7 @@
             transition: 0.3s;
         }
         .skill-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(126,34,206,0.15); }
-        .skill-header {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            margin-bottom: 20px;
-        }
+        .skill-header { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
         .skill-icon {
             font-size: 2.8rem;
             background: linear-gradient(135deg, #ede9fe, #f3e8ff);
@@ -402,17 +398,16 @@
         }
         .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(126,34,206,0.15); border-color: #7c3aed; }
         .project-image {
-            height: 200px;
+            height: 180px;
             border-radius: 20px;
             margin-bottom: 18px;
-            overflow: hidden;
             background: linear-gradient(135deg, #ede9fe, #f3e8ff);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
         }
-        .project-card h3 { font-size: 1.2rem; color: #1e1b4b; margin-bottom: 5px; line-height: 1.3; }
+        .project-card h3 { font-size: 1.2rem; color: #1e1b4b; margin-bottom: 5px; }
         .project-tag {
             display: inline-block;
             background: #f5f3ff;
@@ -525,6 +520,7 @@
         .contact-link:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
         .contact-link i { transition: 0.3s; margin-left: 5px; }
         .contact-link:hover i { transform: translateX(5px); }
+
         /* Warna kontak */
         .contact-card-email { border-color: #3b82f6; }
         .contact-card-email:hover { border-color: #2563eb; box-shadow: 0 25px 50px rgba(59,130,246,0.15); }
@@ -607,7 +603,7 @@
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero h1 { font-size: 3.5rem; }
-            .hero-image img { width: 300px; }
+            .hero-image .avatar-placeholder { width: 300px; height: 300px; font-size: 6rem; }
             .about-container { flex-direction: column; align-items: center; }
             .about-profile { flex: none; width: 100%; max-width: 400px; padding: 30px; }
             .about-detail { padding: 30px; }
@@ -644,7 +640,7 @@
             .hero h1 { font-size: 2.8rem; }
             .hero p { margin-left: auto; margin-right: auto; max-width: 100%; }
             .stats-grid { margin-left: auto; margin-right: auto; max-width: 100%; }
-            .hero-image img { width: 250px; }
+            .hero-image .avatar-placeholder { width: 250px; height: 250px; font-size: 4.5rem; }
             .about-grid { grid-template-columns: 1fr; }
             .about-detail { padding: 25px; }
             .experience-card { padding: 25px; }
@@ -657,16 +653,13 @@
             footer { padding: 25px 5% 20px; }
             footer h3 { font-size: 1.2rem; }
             footer .footer-desc { font-size: 0.8rem; }
-            .welcome-badge { font-size: 0.9rem; padding: 10px 25px; }
-            .skill-icon { font-size: 2.2rem; padding: 14px; }
-            .about-avatar { width: 100px; height: 100px; font-size: 3rem; }
         }
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
             .hero h2 { font-size: 1.1rem; }
             .stats-grid { grid-template-columns: 1fr; max-width: 200px; }
             .btn-primary { padding: 14px 30px; font-size: 0.9rem; }
-            .hero-image img { width: 200px; }
+            .hero-image .avatar-placeholder { width: 200px; height: 200px; font-size: 3.5rem; }
             .about-profile { padding: 20px; }
             .about-profile .about-avatar { width: 90px; height: 90px; font-size: 2.5rem; }
             .contact-card { padding: 25px 15px; }
@@ -675,7 +668,6 @@
             .contact-card-wa .contact-link-wa { padding: 8px 20px; font-size: 0.8rem; }
             .btn-view-project { padding: 10px 20px; font-size: 0.8rem; }
             .btn-cert-detail { padding: 6px 16px; font-size: 0.7rem; }
-            .cert-image { height: 120px; }
             .skill-tag { font-size: 0.75rem; padding: 6px 14px; }
         }
     </style>
@@ -703,7 +695,7 @@
     <!-- ===== BERANDA ===== -->
     <section id="beranda" class="hero">
         <div class="hero-text">
-            <div class="welcome-badge"><i class="fas fa-star"></i> ✨ Selamat Datang ✨</div>
+            <div class="welcome-badge"><i class="fas fa-star"></i> Selamat Datang</div>
             <h1>Nika Khairinnisa</h1>
             <h2>Software Engineering & Quality Assurance</h2>
             <p>Halo! Saya senang Anda berkunjung. Ini adalah ruang digital tempat saya membagikan perjalanan belajar saya di bidang rekayasa perangkat lunak dan keahlian khusus penjaminan mutu aplikasi.</p>
@@ -714,7 +706,7 @@
             <a href="#kontak" class="btn-primary"><i class="fas fa-paper-plane"></i> Mari Terhubung!</a>
         </div>
         <div class="hero-image">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='380'%3E%3Crect width='380' height='380' rx='30' fill='%23ede9fe'/%3E%3Ctext x='190' y='180' font-size='100' text-anchor='middle'%3E👩‍💻%3C/text%3E%3Ctext x='190' y='230' font-size='20' text-anchor='middle' fill='%237c3aed'%3ENika Khairinnisa%3C/text%3E%3C/svg%3E" alt="Nika Khairinnisa">
+            <div class="avatar-placeholder">👩‍💻</div>
         </div>
     </section>
 
@@ -726,7 +718,7 @@
             <div class="about-profile">
                 <div class="about-avatar">👩‍💻</div>
                 <h3>Nika Khairinnisa</h3>
-                <p class="role">✨ Quality Assurance Enthusiast</p>
+                <p class="role">Quality Assurance Enthusiast</p>
                 <div class="school">
                     <p style="font-size:0.85rem;color:#4b5563;margin:0;">
                         <i class="fas fa-graduation-cap"></i> SMKN 8 Jember | Rekayasa Perangkat Lunak
@@ -738,27 +730,18 @@
                     Saya adalah seorang <b>Quality Assurance Enthusiast</b> yang berdedikasi untuk memastikan 
                     setiap produk perangkat lunak yang dihasilkan memiliki kualitas terbaik. Dengan latar belakang 
                     di bidang <b>Rekayasa Perangkat Lunak</b>, saya memiliki pemahaman mendalam tentang siklus 
-                    pengembangan perangkat lunak dan pentingnya <i>pengujian yang menyeluruh</i>.
+                    pengembangan perangkat lunak dan pentingnya pengujian yang menyeluruh.
                 </p>
                 <p>
-                    🎯 Ketertarikan saya pada <i>Quality Assurance</i> lahir dari keinginan untuk menciptakan 
-                    produk digital yang tidak hanya berfungsi dengan baik, tetapi juga memberikan 
-                    <b>pengalaman pengguna yang luar biasa</b>. Saya percaya bahwa detail kecil dalam pengujian dapat 
+                    Ketertarikan saya pada <i>Quality Assurance</i> lahir dari keinginan untuk menciptakan 
+                    produk digital yang tidak hanya berfungsi dengan baik, tetapi juga memberikan pengalaman 
+                    pengguna yang luar biasa. Saya percaya bahwa <b>detail kecil</b> dalam pengujian dapat 
                     membuat perbedaan besar pada kualitas akhir sebuah produk.
                 </p>
                 <div class="about-grid">
-                    <div class="about-grid-item">
-                        <h4>💻 Software Engineering</h4>
-                        <p>Rekayasa Perangkat Lunak</p>
-                    </div>
-                    <div class="about-grid-item">
-                        <h4>🔍 Quality Assurance</h4>
-                        <p>Testing & Bug Tracking</p>
-                    </div>
-                    <div class="about-grid-item">
-                        <h4>🛠️ Tools</h4>
-                        <p>Cypress, Postman, Git</p>
-                    </div>
+                    <div class="about-grid-item"><h4>Software Engineering</h4><p>Rekayasa Perangkat Lunak</p></div>
+                    <div class="about-grid-item"><h4>Quality Assurance</h4><p>Testing & Bug Tracking</p></div>
+                    <div class="about-grid-item"><h4>Tools</h4><p>Cypress, Postman, Git</p></div>
                 </div>
             </div>
         </div>
