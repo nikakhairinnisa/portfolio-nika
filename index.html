@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portofolio | Nika Khairinnisa</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
-        /* ===== RESET ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #fdfcff;
-            color: #1e1b4b;
-            overflow-x: hidden;
-        }
-
+        body { font-family: 'Poppins', sans-serif; background: #fdfcff; color: #1e1b4b; overflow-x: hidden; }
+        
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #ede9fe; border-radius: 50px; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #7c3aed, #a855f7); border-radius: 50px; }
-
+        
         /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
@@ -40,7 +38,7 @@
             transition: 0.3s;
         }
         .navbar:hover { box-shadow: 0 12px 40px rgba(126, 34, 206, 0.25); }
-        .nav-links { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+        .nav-links { display: flex; align-items: center; gap: 25px; }
         .nav-link {
             color: #2e1065;
             text-decoration: none;
@@ -65,7 +63,7 @@
         .nav-link:hover::after, .nav-link.active::after { width: 100%; }
         .nav-link:hover { color: #7c3aed; }
         .nav-link.active { color: #7c3aed; }
-
+        
         .hamburger {
             display: none;
             flex-direction: column;
@@ -85,7 +83,7 @@
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
         .hamburger.active span:nth-child(2) { opacity: 0; }
         .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
+        
         .section {
             min-height: 100vh;
             padding: 120px 10%;
@@ -106,7 +104,7 @@
             font-size: 1.1rem;
             margin-bottom: 50px;
         }
-
+        
         /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
@@ -130,24 +128,55 @@
             pointer-events: none;
         }
         .hero-text { flex: 1; z-index: 1; }
+        
         .welcome-badge {
             display: inline-block;
-            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            background: linear-gradient(135deg, #7c3aed, #a855f7, #6d28d9);
             color: white;
-            padding: 8px 28px;
+            padding: 12px 35px;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
-            animation: pulseGlow 2s infinite;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.4), 0 0 60px rgba(124, 58, 237, 0.2), 0 0 90px rgba(124, 58, 237, 0.1);
+            animation: pulseGlow 2s ease-in-out infinite;
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        .welcome-badge::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 55px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7, #6d28d9);
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(10px);
+        }
+        .welcome-badge i {
+            margin-right: 10px;
+            animation: starSpin 4s linear infinite;
+        }
+        @keyframes starSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3); }
-            50% { box-shadow: 0 4px 30px rgba(124, 58, 237, 0.5); }
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(124, 58, 237, 0.4), 0 0 60px rgba(124, 58, 237, 0.2);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 50px rgba(124, 58, 237, 0.6), 0 0 80px rgba(124, 58, 237, 0.3), 0 0 120px rgba(124, 58, 237, 0.1);
+                transform: scale(1.03);
+            }
         }
+        
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4.2rem;
@@ -168,6 +197,7 @@
             margin-bottom: 35px;
             max-width: 550px;
         }
+        
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -181,13 +211,18 @@
             border-radius: 20px;
             text-align: center;
             border: 1px solid #ede9fe;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
             transition: 0.3s;
             cursor: default;
         }
-        .stat-card:hover { transform: translateY(-5px); border-color: #7c3aed; }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: #7c3aed;
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.1);
+        }
         .stat-card h3 { color: #7c3aed; font-size: 1.1rem; margin-bottom: 2px; }
-        .stat-card p { font-size: 0.7rem; color: #9ca3af; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card p { font-size: 0.7rem; color: #9ca3af; font-weight: 700; text-transform: uppercase; margin: 0; letter-spacing: 0.5px; }
+        
         .btn-primary {
             display: inline-block;
             background: linear-gradient(90deg, #7c3aed, #a855f7);
@@ -199,25 +234,25 @@
             font-size: 1rem;
             cursor: pointer;
             transition: 0.4s;
-            box-shadow: 0 8px 25px rgba(124,58,237,0.4);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
             text-decoration: none;
         }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(124,58,237,0.5); }
-        .btn-primary i { margin-right: 10px; }
-        .hero-image { flex-shrink: 0; z-index: 1; }
-        .hero-image .avatar-placeholder {
-            width: 380px;
-            height: 380px;
-            border-radius: 30px;
-            background: linear-gradient(135deg, #ede9fe, #f3e8ff);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8rem;
-            box-shadow: 0 25px 50px rgba(126,34,206,0.2);
-            border: 5px solid white;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.5);
         }
-
+        .btn-primary i { margin-right: 10px; }
+        
+        .hero-image { flex-shrink: 0; z-index: 1; }
+        .hero-image img {
+            width: 380px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(126, 34, 206, 0.2);
+            border: 5px solid white;
+            transition: 0.3s;
+        }
+        .hero-image img:hover { transform: scale(1.02); }
+        
         /* ===== TENTANG ===== */
         #tentang { background: radial-gradient(circle at top right, #f3e8ff, #ffffff); }
         .about-container {
@@ -253,24 +288,48 @@
             align-items: center;
             justify-content: center;
             font-size: 3.5rem;
-            box-shadow: 0 10px 30px rgba(124,58,237,0.3);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
             flex-shrink: 0;
         }
-        .about-profile h3 { color: #1e1b4b; font-size: 1.5rem; margin-bottom: 2px; }
-        .about-profile .role { color: #7c3aed; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px; }
-        .about-profile .school { font-size: 0.8rem; color: #6b7280; border-top: 1px solid #f3e8ff; padding-top: 12px; margin-top: 8px; width: 100%; }
+        .about-profile h3 {
+            color: #1e1b4b;
+            font-size: 1.5rem;
+            margin-bottom: 2px;
+        }
+        .about-profile .role {
+            color: #7c3aed;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+        .about-profile .school {
+            font-size: 0.8rem;
+            color: #6b7280;
+            border-top: 1px solid #f3e8ff;
+            padding-top: 12px;
+            margin-top: 8px;
+            width: 100%;
+        }
         .about-detail {
             flex: 1;
             background: white;
             padding: 40px 45px;
             border-radius: 40px;
             border: 1px solid #e9d5ff;
-            box-shadow: 0 10px 40px rgba(126,34,206,0.08);
+            box-shadow: 0 10px 40px rgba(126, 34, 206, 0.08);
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        .about-detail p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 15px; }
+        .about-detail p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #374151;
+            margin-bottom: 15px;
+        }
+        .about-detail p:last-of-type {
+            margin-bottom: 20px;
+        }
         .about-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -285,10 +344,22 @@
             text-align: center;
             transition: 0.3s;
         }
-        .about-grid-item:hover { background: #ede9fe; transform: scale(1.03); }
-        .about-grid-item h4 { color: #6d28d9; font-size: 1rem; margin-bottom: 2px; }
-        .about-grid-item p { font-size: 0.75rem; color: #6b7280; margin: 0; }
-
+        .about-grid-item:hover {
+            background: #ede9fe;
+            transform: scale(1.03);
+        }
+        .about-grid-item h4 {
+            color: #6d28d9;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+        .about-grid-item p {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
         /* ===== PENGALAMAN ===== */
         #pengalaman { background: #ffffff; }
         .experience-card {
@@ -296,12 +367,15 @@
             padding: 45px;
             border-radius: 40px;
             border: 1px solid #e9d5ff;
-            box-shadow: 0 20px 50px rgba(126,34,206,0.08);
+            box-shadow: 0 20px 50px rgba(126, 34, 206, 0.08);
             max-width: 900px;
             margin: 0 auto;
             transition: 0.3s;
         }
-        .experience-card:hover { transform: translateY(-5px); box-shadow: 0 25px 60px rgba(126,34,206,0.15); }
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 60px rgba(126, 34, 206, 0.15);
+        }
         .exp-badge {
             display: inline-block;
             background: #7c3aed;
@@ -314,7 +388,12 @@
         }
         .exp-badge i { margin-right: 8px; }
         .experience-card h3 { font-size: 1.8rem; color: #1e1b4b; margin-bottom: 8px; }
-        .experience-card .company { color: #6d28d9; font-weight: 600; margin-bottom: 25px; font-size: 1.1rem; }
+        .experience-card .company {
+            color: #6d28d9;
+            font-weight: 600;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
         .exp-list { list-style: none; padding: 0; }
         .exp-list li {
             margin-bottom: 15px;
@@ -325,9 +404,17 @@
             color: #4b5563;
             line-height: 1.6;
         }
-        .exp-list li .check { color: #7c3aed; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
-
-        /* ===== KEAHLIAN ===== */
+        .exp-list li .check {
+            color: #7c3aed;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        /* ============================================================
+        KEAHLIAN - DIPERCANTIK DENGAN EFEK GRADIENT
+        ============================================================ */
         #keahlian { background: radial-gradient(circle at bottom left, #f5f3ff, #ffffff); }
         .skills-container {
             display: grid;
@@ -342,24 +429,72 @@
             padding: 40px;
             border-radius: 40px;
             border: 1px solid #e9d5ff;
-            box-shadow: 0 20px 40px rgba(126,34,206,0.08);
-            transition: 0.3s;
+            box-shadow: 0 20px 40px rgba(126, 34, 206, 0.08);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
-        .skill-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(126,34,206,0.15); }
-        .skill-header { display: flex; align-items: center; gap: 18px; margin-bottom: 20px; }
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+        .skill-card:nth-child(1)::before {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+        .skill-card:nth-child(2)::before {
+            background: linear-gradient(135deg, #0f3460, #16213e);
+        }
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(126, 34, 206, 0.15);
+            border-color: #7c3aed;
+        }
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
         .skill-icon {
             font-size: 2.8rem;
             background: linear-gradient(135deg, #ede9fe, #f3e8ff);
             padding: 18px;
             border-radius: 25px;
             line-height: 1;
-            box-shadow: 0 8px 25px rgba(124,58,237,0.1);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.1);
             transition: 0.3s;
         }
-        .skill-card:hover .skill-icon { transform: scale(1.05) rotate(-5deg); }
-        .skill-card h3 { font-size: 1.6rem; color: #1e1b4b; font-weight: 700; }
-        .skill-card p { color: #4b5563; margin-bottom: 25px; line-height: 1.7; font-size: 0.95rem; }
-        .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill-card:hover .skill-icon {
+            transform: scale(1.05) rotate(-5deg);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.2);
+        }
+        .skill-card h3 {
+            font-size: 1.6rem;
+            color: #1e1b4b;
+            font-weight: 700;
+            background: linear-gradient(135deg, #2e1065, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .skill-card p {
+            color: #4b5563;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
         .skill-tag {
             padding: 10px 22px;
             border-radius: 50px;
@@ -367,14 +502,18 @@
             font-size: 0.85rem;
             transition: 0.3s;
             cursor: default;
+            border: 2px solid transparent;
         }
-        .skill-tag:hover { transform: scale(1.05) translateY(-3px); }
+        .skill-tag:hover {
+            transform: scale(1.05) translateY(-3px);
+        }
+        /* Warna berbeda untuk setiap tag */
         .skill-tag:nth-child(1) { background: #ede9fe; color: #7c3aed; }
         .skill-tag:nth-child(2) { background: #fce4ec; color: #c62828; }
         .skill-tag:nth-child(3) { background: #e3f2fd; color: #0d47a1; }
         .skill-tag:nth-child(4) { background: #e8f5e9; color: #2e7d32; }
         .skill-tag:nth-child(5) { background: #fff3e0; color: #e65100; }
-
+        
         /* ===== PROYEK ===== */
         #proyek { background: #ffffff; }
         .projects-grid {
@@ -390,24 +529,58 @@
             border-radius: 30px;
             border: 1px solid #e9d5ff;
             padding: 25px;
-            box-shadow: 0 10px 25px rgba(126,34,206,0.08);
+            box-shadow: 0 10px 25px rgba(126, 34, 206, 0.08);
             transition: 0.4s;
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(126,34,206,0.15); border-color: #7c3aed; }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(126, 34, 206, 0.15);
+            border-color: #7c3aed;
+        }
         .project-image {
-            height: 180px;
+            height: 200px;
             border-radius: 20px;
             margin-bottom: 18px;
+            overflow: hidden;
             background: linear-gradient(135deg, #ede9fe, #f3e8ff);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
         }
-        .project-card h3 { font-size: 1.2rem; color: #1e1b4b; margin-bottom: 5px; }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        .project-image .overlay-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+        .project-card:hover .overlay-icon {
+            opacity: 1;
+        }
+        .project-card h3 {
+            font-size: 1.2rem;
+            color: #1e1b4b;
+            margin-bottom: 5px;
+            line-height: 1.3;
+        }
         .project-tag {
             display: inline-block;
             background: #f5f3ff;
@@ -419,7 +592,13 @@
             margin-bottom: 12px;
             align-self: flex-start;
         }
-        .project-card p { color: #4b5563; font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px; flex: 1; }
+        .project-card p {
+            color: #4b5563;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex: 1;
+        }
         .btn-view-project {
             display: inline-block;
             background: linear-gradient(90deg, #7c3aed, #a855f7);
@@ -430,16 +609,19 @@
             font-weight: 600;
             text-decoration: none;
             transition: 0.4s;
-            box-shadow: 0 8px 25px rgba(124,58,237,0.3);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
             text-align: center;
             border: none;
             cursor: pointer;
             margin-top: auto;
         }
-        .btn-view-project:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(124,58,237,0.4); }
+        .btn-view-project:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+        }
         .btn-view-project i { margin-right: 8px; }
-
-        /* ===== SERTIFIKAT ===== */
+        
+        /* ===== SERTIFIKAT - 5 KOLOM DENGAN FOTO ===== */
         #sertifikat { background: radial-gradient(circle at top left, #f5f3ff, #ffffff); }
         .cert-grid {
             display: grid;
@@ -454,17 +636,60 @@
             padding: 20px 18px;
             border-radius: 25px;
             border: 1px solid #ede9fe;
-            box-shadow: 0 10px 25px rgba(126,34,206,0.08);
+            box-shadow: 0 10px 25px rgba(126, 34, 206, 0.08);
             transition: 0.4s;
             text-align: center;
             display: flex;
             flex-direction: column;
         }
-        .cert-card:hover { transform: translateY(-10px) scale(1.02); border-color: #7c3aed; box-shadow: 0 20px 50px rgba(126,34,206,0.15); }
-        .cert-icon { font-size: 2.8rem; margin-bottom: 8px; display: block; }
-        .cert-card h3 { font-size: 1rem; color: #1e1b4b; margin-bottom: 6px; line-height: 1.3; min-height: 45px; }
-        .cert-card .cert-date { font-size: 0.7rem; color: #7c3aed; font-weight: 600; }
-        .cert-card .cert-desc { font-size: 0.8rem; color: #6b7280; margin-top: 10px; line-height: 1.5; flex: 1; }
+        .cert-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #7c3aed;
+            box-shadow: 0 20px 50px rgba(126, 34, 206, 0.15);
+        }
+        .cert-image {
+            width: 100%;
+            height: 150px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #ede9fe;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cert-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .cert-card:hover .cert-image img {
+            transform: scale(1.05);
+        }
+        .cert-icon {
+            font-size: 2.8rem;
+            display: block;
+        }
+        .cert-card h3 {
+            font-size: 1rem;
+            color: #1e1b4b;
+            margin-bottom: 6px;
+            line-height: 1.3;
+            min-height: 45px;
+        }
+        .cert-card .cert-date {
+            font-size: 0.7rem;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        .cert-card .cert-desc {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 10px;
+            line-height: 1.5;
+            flex: 1;
+        }
         .btn-cert-detail {
             display: inline-block;
             background: linear-gradient(90deg, #7c3aed, #a855f7);
@@ -475,16 +700,152 @@
             font-weight: 600;
             text-decoration: none;
             transition: 0.4s;
-            box-shadow: 0 6px 20px rgba(124,58,237,0.25);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
             border: none;
             cursor: pointer;
             margin-top: 15px;
             align-self: center;
         }
-        .btn-cert-detail:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(124,58,237,0.35); }
+        .btn-cert-detail:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+        }
         .btn-cert-detail i { margin-right: 6px; }
-
-        /* ===== KONTAK ===== */
+        
+        /* ===== MODAL SERTIFIKAT ===== */
+        .modal-cert-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        .modal-cert-overlay.active { display: flex; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-cert-content {
+            background: white;
+            max-width: 700px;
+            width: 92%;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+            position: relative;
+            animation: slideUp 0.4s ease;
+            border: 1px solid #e9d5ff;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-cert-close {
+            position: absolute;
+            top: 12px;
+            right: 18px;
+            font-size: 2rem;
+            color: #9ca3af;
+            cursor: pointer;
+            transition: 0.3s;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+        .modal-cert-close:hover {
+            color: #7c3aed;
+            transform: rotate(90deg);
+        }
+        .modal-cert-image {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #ede9fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            margin-bottom: 15px;
+        }
+        .modal-cert-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .modal-cert-image .placeholder-icon {
+            font-size: 5rem;
+            color: #7c3aed;
+            padding: 40px;
+        }
+        .modal-cert-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2e1065;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .modal-cert-date {
+            text-align: center;
+            color: #7c3aed;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .modal-cert-desc {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+        .modal-cert-footer {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .modal-cert-footer .btn {
+            padding: 10px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            color: white;
+        }
+        .modal-cert-footer .btn-primary-modal {
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+        }
+        .modal-cert-footer .btn-primary-modal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+        }
+        .modal-cert-footer .btn-secondary-modal {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+        .modal-cert-footer .btn-secondary-modal:hover {
+            background: #ede9fe;
+            transform: translateY(-3px);
+        }
+        
+        /* ============================================================
+        KONTAK - 4 KOLOM DENGAN WARNA BERBEDA
+        ============================================================ */
         #kontak { background: linear-gradient(135deg, #fdfcff 0%, #ede9fe 100%); }
         .contact-grid {
             display: grid;
@@ -500,13 +861,30 @@
             border-radius: 30px;
             border: 2px solid #e9d5ff;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(126,34,206,0.08);
+            box-shadow: 0 20px 40px rgba(126, 34, 206, 0.08);
             transition: 0.4s;
         }
-        .contact-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(126,34,206,0.15); }
-        .contact-card .icon { font-size: 2.8rem; margin-bottom: 15px; display: block; }
-        .contact-card h4 { font-size: 1.1rem; margin-bottom: 5px; font-weight: 700; }
-        .contact-card p { font-weight: 500; font-size: 0.85rem; margin-bottom: 12px; word-break: break-all; color: #4b5563; }
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(126, 34, 206, 0.15);
+        }
+        .contact-card .icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .contact-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .contact-card p {
+            font-weight: 500;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            word-break: break-all;
+            color: #4b5563;
+        }
         .contact-link {
             display: inline-block;
             font-weight: 700;
@@ -517,22 +895,58 @@
             border-radius: 50px;
             border: 2px solid transparent;
         }
-        .contact-link:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .contact-link i { transition: 0.3s; margin-left: 5px; }
-        .contact-link:hover i { transform: translateX(5px); }
-
-        /* Warna kontak */
-        .contact-card-email { border-color: #3b82f6; }
-        .contact-card-email:hover { border-color: #2563eb; box-shadow: 0 25px 50px rgba(59,130,246,0.15); }
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        .contact-link i {
+            transition: 0.3s;
+            margin-left: 5px;
+        }
+        .contact-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* ===== EMAIL - BIRU ===== */
+        .contact-card-email {
+            border-color: #3b82f6;
+        }
+        .contact-card-email:hover {
+            border-color: #2563eb;
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+        }
         .contact-card-email .icon { color: #3b82f6; }
         .contact-card-email h4 { color: #2563eb; }
-        .contact-link-email { color: #3b82f6; border-color: #93c5fd; }
-        .contact-link-email:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; border-color: #3b82f6; }
-
-        .contact-card-wa { border-color: #25D366; background: linear-gradient(135deg, #ffffff, #f0faf0); }
-        .contact-card-wa:hover { border-color: #128C7E; box-shadow: 0 25px 50px rgba(37,211,102,0.2); }
-        .contact-card-wa .icon-wa { font-size: 3.2rem; display: block; margin-bottom: 12px; color: #25D366; animation: waPulse 2s ease-in-out infinite; }
-        @keyframes waPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .contact-link-email {
+            color: #3b82f6;
+            border-color: #93c5fd;
+        }
+        .contact-link-email:hover {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        /* ===== WHATSAPP - HIJAU ===== */
+        .contact-card-wa {
+            border-color: #25D366;
+            background: linear-gradient(135deg, #ffffff, #f0faf0);
+        }
+        .contact-card-wa:hover {
+            border-color: #128C7E;
+            box-shadow: 0 25px 50px rgba(37, 211, 102, 0.2);
+        }
+        .contact-card-wa .icon-wa {
+            font-size: 3.2rem;
+            display: block;
+            margin-bottom: 12px;
+            color: #25D366;
+            animation: waPulse 2s ease-in-out infinite;
+        }
+        @keyframes waPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
         .contact-card-wa h4 { color: #128C7E; }
         .contact-card-wa p { font-weight: 600; font-size: 1rem; letter-spacing: 0.5px; }
         .contact-link-wa {
@@ -545,27 +959,56 @@
             padding: 10px 35px;
             border-radius: 50px;
             transition: 0.4s;
-            box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
             border: none;
         }
-        .contact-link-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,0.5); }
+        .contact-link-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+        }
         .contact-link-wa i { margin-right: 8px; transition: 0.3s; }
         .contact-link-wa:hover i { transform: scale(1.2); }
-
-        .contact-card-github { border-color: #6b7280; }
-        .contact-card-github:hover { border-color: #1f2937; box-shadow: 0 25px 50px rgba(31,41,55,0.15); }
+        
+        /* ===== GITHUB - HITAM/ABU-ABU ===== */
+        .contact-card-github {
+            border-color: #6b7280;
+        }
+        .contact-card-github:hover {
+            border-color: #1f2937;
+            box-shadow: 0 25px 50px rgba(31, 41, 55, 0.15);
+        }
         .contact-card-github .icon { color: #1f2937; }
         .contact-card-github h4 { color: #1f2937; }
-        .contact-link-github { color: #1f2937; border-color: #9ca3af; }
-        .contact-link-github:hover { background: linear-gradient(135deg, #1f2937, #111827); color: white; border-color: #1f2937; }
-
-        .contact-card-linkedin { border-color: #0a66c2; }
-        .contact-card-linkedin:hover { border-color: #004182; box-shadow: 0 25px 50px rgba(10,102,194,0.15); }
+        .contact-link-github {
+            color: #1f2937;
+            border-color: #9ca3af;
+        }
+        .contact-link-github:hover {
+            background: linear-gradient(135deg, #1f2937, #111827);
+            color: white;
+            border-color: #1f2937;
+        }
+        
+        /* ===== LINKEDIN - BIRU TUA ===== */
+        .contact-card-linkedin {
+            border-color: #0a66c2;
+        }
+        .contact-card-linkedin:hover {
+            border-color: #004182;
+            box-shadow: 0 25px 50px rgba(10, 102, 194, 0.15);
+        }
         .contact-card-linkedin .icon { color: #0a66c2; }
         .contact-card-linkedin h4 { color: #004182; }
-        .contact-link-linkedin { color: #0a66c2; border-color: #8bb9e8; }
-        .contact-link-linkedin:hover { background: linear-gradient(135deg, #0a66c2, #004182); color: white; border-color: #0a66c2; }
-
+        .contact-link-linkedin {
+            color: #0a66c2;
+            border-color: #8bb9e8;
+        }
+        .contact-link-linkedin:hover {
+            background: linear-gradient(135deg, #0a66c2, #004182);
+            color: white;
+            border-color: #0a66c2;
+        }
+        
         /* ===== FOOTER ===== */
         footer {
             background: linear-gradient(135deg, #2e1065, #4c1d95);
@@ -575,10 +1018,34 @@
             border-top: 3px solid #7c3aed;
         }
         footer .footer-content { max-width: 800px; margin: 0 auto; }
-        footer h3 { font-size: 1.5rem; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; margin-bottom: 8px; }
-        footer .footer-desc { color: #c4b5fd; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; max-width: 450px; margin-left: auto; margin-right: auto; }
-        footer .divider { width: 50px; height: 2px; background: #a78bfa; margin: 0 auto 15px; border-radius: 10px; }
-        footer .copyright { font-size: 0.75rem; color: #8b7bb8; letter-spacing: 0.5px; }
+        footer h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        footer .footer-desc {
+            color: #c4b5fd;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        footer .divider {
+            width: 50px;
+            height: 2px;
+            background: #a78bfa;
+            margin: 0 auto 15px;
+            border-radius: 10px;
+        }
+        footer .copyright {
+            font-size: 0.75rem;
+            color: #8b7bb8;
+            letter-spacing: 0.5px;
+        }
         footer .social-icons {
             display: flex;
             justify-content: center;
@@ -593,17 +1060,21 @@
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        footer .social-icons a:hover { color: #ffffff; background: rgba(124,58,237,0.4); transform: translateY(-3px); }
-
+        footer .social-icons a:hover {
+            color: #ffffff;
+            background: rgba(124, 58, 237, 0.4);
+            transform: translateY(-3px);
+        }
+        
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero h1 { font-size: 3.5rem; }
-            .hero-image .avatar-placeholder { width: 300px; height: 300px; font-size: 6rem; }
+            .hero-image img { width: 300px; }
             .about-container { flex-direction: column; align-items: center; }
             .about-profile { flex: none; width: 100%; max-width: 400px; padding: 30px; }
             .about-detail { padding: 30px; }
@@ -613,8 +1084,15 @@
             .contact-grid { grid-template-columns: repeat(2, 1fr); max-width: 600px; }
             .section-title { font-size: 2.5rem; }
         }
+        
         @media (max-width: 768px) {
-            .navbar { padding: 10px 20px; gap: 0; top: 10px; width: 92%; justify-content: space-between; }
+            .navbar {
+                padding: 10px 20px;
+                gap: 0;
+                top: 10px;
+                width: 92%;
+                justify-content: space-between;
+            }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -640,7 +1118,7 @@
             .hero h1 { font-size: 2.8rem; }
             .hero p { margin-left: auto; margin-right: auto; max-width: 100%; }
             .stats-grid { margin-left: auto; margin-right: auto; max-width: 100%; }
-            .hero-image .avatar-placeholder { width: 250px; height: 250px; font-size: 4.5rem; }
+            .hero-image img { width: 250px; }
             .about-grid { grid-template-columns: 1fr; }
             .about-detail { padding: 25px; }
             .experience-card { padding: 25px; }
@@ -653,21 +1131,31 @@
             footer { padding: 25px 5% 20px; }
             footer h3 { font-size: 1.2rem; }
             footer .footer-desc { font-size: 0.8rem; }
+            .modal-cert-content { padding: 20px; }
+            .modal-cert-title { font-size: 1.1rem; }
+            .modal-cert-image { min-height: 200px; }
+            .welcome-badge { font-size: 0.9rem; padding: 10px 25px; }
+            .skill-icon { font-size: 2.2rem; padding: 14px; }
         }
+        
         @media (max-width: 480px) {
             .hero h1 { font-size: 2.2rem; }
             .hero h2 { font-size: 1.1rem; }
             .stats-grid { grid-template-columns: 1fr; max-width: 200px; }
             .btn-primary { padding: 14px 30px; font-size: 0.9rem; }
-            .hero-image .avatar-placeholder { width: 200px; height: 200px; font-size: 3.5rem; }
+            .hero-image img { width: 200px; }
             .about-profile { padding: 20px; }
             .about-profile .about-avatar { width: 90px; height: 90px; font-size: 2.5rem; }
             .contact-card { padding: 25px 15px; }
             .contact-card .icon { font-size: 2.2rem; }
             .contact-card-wa .icon-wa { font-size: 2.6rem; }
             .contact-card-wa .contact-link-wa { padding: 8px 20px; font-size: 0.8rem; }
+            footer .social-icons { gap: 10px; }
+            footer .social-icons a { width: 30px; height: 30px; font-size: 0.9rem; }
             .btn-view-project { padding: 10px 20px; font-size: 0.8rem; }
             .btn-cert-detail { padding: 6px 16px; font-size: 0.7rem; }
+            .cert-image { height: 120px; }
+            .welcome-badge { font-size: 0.75rem; padding: 8px 18px; }
             .skill-tag { font-size: 0.75rem; padding: 6px 14px; }
         }
     </style>
@@ -692,37 +1180,64 @@
         </button>
     </nav>
 
-    <!-- ===== BERANDA ===== -->
+    <!-- ===== MODAL SERTIFIKAT ===== -->
+    <div class="modal-cert-overlay" id="certModal">
+        <div class="modal-cert-content">
+            <button class="modal-cert-close" onclick="closeCertModal()">&times;</button>
+            <div class="modal-cert-image" id="certModalImage">
+                <span class="placeholder-icon">📜</span>
+            </div>
+            <h3 class="modal-cert-title" id="certModalTitle">Sertifikat</h3>
+            <p class="modal-cert-date" id="certModalDate">Tanggal</p>
+            <p class="modal-cert-desc" id="certModalDesc">Deskripsi sertifikat.</p>
+            <div class="modal-cert-footer">
+                <button class="btn btn-secondary-modal" onclick="closeCertModal()">
+                    <i class="fas fa-times"></i> Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== BERANDA / HERO ===== -->
     <section id="beranda" class="hero">
-        <div class="hero-text">
-            <div class="welcome-badge"><i class="fas fa-star"></i> Selamat Datang</div>
+        <div class="hero-text" data-aos="fade-right">
+            <div class="welcome-badge">
+                <i class="fas fa-star"></i> ✨ Selamat Datang ✨
+            </div>
             <h1>Nika Khairinnisa</h1>
             <h2>Software Engineering & Quality Assurance</h2>
             <p>Halo! Saya senang Anda berkunjung. Ini adalah ruang digital tempat saya membagikan perjalanan belajar saya di bidang rekayasa perangkat lunak dan keahlian khusus penjaminan mutu aplikasi.</p>
+            
             <div class="stats-grid">
-                <div class="stat-card"><h3>Software Engineering</h3><p>Rekayasa Perangkat Lunak</p></div>
-                <div class="stat-card"><h3>Quality Assurance</h3><p>Penjaminan Mutu</p></div>
+                <div class="stat-card">
+                    <h3>Software Engineering</h3>
+                    <p>Rekayasa Perangkat Lunak</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Quality Assurance</h3>
+                    <p>Penjaminan Mutu</p>
+                </div>
             </div>
+            
             <a href="#kontak" class="btn-primary"><i class="fas fa-paper-plane"></i> Mari Terhubung!</a>
         </div>
-        <div class="hero-image">
-            <div class="avatar-placeholder">👩‍💻</div>
+        <div class="hero-image" data-aos="fade-left">
+            <!-- ===== FOTO NIKA - PAKAI BASE64 ===== -->
+            <img src="data:image/png;base64,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" alt="Nika Khairinnisa">
         </div>
     </section>
 
     <!-- ===== TENTANG ===== -->
     <section id="tentang" class="section">
-        <h2 class="section-title">Tentang Saya</h2>
-        <p class="section-subtitle">Mengenal lebih dekat perjalanan dan passion saya</p>
-        <div class="about-container">
+        <h2 class="section-title" data-aos="fade-up">Tentang Saya</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Mengenal lebih dekat perjalanan dan passion saya</p>
+        <div class="about-container" data-aos="fade-up" data-aos-delay="200">
             <div class="about-profile">
                 <div class="about-avatar">👩‍💻</div>
                 <h3>Nika Khairinnisa</h3>
                 <p class="role">Quality Assurance Enthusiast</p>
                 <div class="school">
-                    <p style="font-size:0.85rem;color:#4b5563;margin:0;">
-                        <i class="fas fa-graduation-cap"></i> SMKN 8 Jember | Rekayasa Perangkat Lunak
-                    </p>
+                    <p style="font-size:0.85rem;color:#4b5563;margin:0;">SMKN 8 Jember | Rekayasa Perangkat Lunak</p>
                 </div>
             </div>
             <div class="about-detail">
@@ -739,9 +1254,18 @@
                     membuat perbedaan besar pada kualitas akhir sebuah produk.
                 </p>
                 <div class="about-grid">
-                    <div class="about-grid-item"><h4>Software Engineering</h4><p>Rekayasa Perangkat Lunak</p></div>
-                    <div class="about-grid-item"><h4>Quality Assurance</h4><p>Testing & Bug Tracking</p></div>
-                    <div class="about-grid-item"><h4>Tools</h4><p>Cypress, Postman, Git</p></div>
+                    <div class="about-grid-item">
+                        <h4>Software Engineering</h4>
+                        <p>Rekayasa Perangkat Lunak</p>
+                    </div>
+                    <div class="about-grid-item">
+                        <h4>Quality Assurance</h4>
+                        <p>Testing & Bug Tracking</p>
+                    </div>
+                    <div class="about-grid-item">
+                        <h4>Tools</h4>
+                        <p>Cypress, Postman, Git</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -749,9 +1273,10 @@
 
     <!-- ===== PENGALAMAN ===== -->
     <section id="pengalaman" class="section">
-        <h2 class="section-title">Pengalaman Industri</h2>
-        <p class="section-subtitle">Perjalanan belajar dan karir di dunia Rekayasa Perangkat Lunak</p>
-        <div class="experience-card">
+        <h2 class="section-title" data-aos="fade-up">Pengalaman Industri</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Perjalanan belajar dan karir di dunia Rekayasa Perangkat Lunak</p>
+        
+        <div class="experience-card" data-aos="fade-up" data-aos-delay="200">
             <div class="exp-badge"><i class="fas fa-calendar-alt"></i> 2024 - 2026</div>
             <h3>Rekayasa Perangkat Lunak</h3>
             <p class="company">SMKN 8 Jember & PT Humma Teknologi Indonesia</p>
@@ -764,11 +1289,15 @@
         </div>
     </section>
 
-    <!-- ===== KEAHLIAN ===== -->
+    <!-- ============================================================
+    KEAHLIAN & TOOLS - DIPERCANTIK
+    ============================================================ -->
     <section id="keahlian" class="section">
-        <h2 class="section-title">Keahlian & Tools</h2>
-        <p class="section-subtitle">Kompetensi yang saya kuasai di bidang pengembangan dan pengujian perangkat lunak</p>
-        <div class="skills-container">
+        <h2 class="section-title" data-aos="fade-up">Keahlian & Tools</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Kompetensi yang saya kuasai di bidang pengembangan dan pengujian perangkat lunak</p>
+        
+        <div class="skills-container" data-aos="fade-up" data-aos-delay="200">
+            
             <div class="skill-card">
                 <div class="skill-header">
                     <div class="skill-icon">🌐</div>
@@ -783,6 +1312,7 @@
                     <span class="skill-tag">Responsive</span>
                 </div>
             </div>
+
             <div class="skill-card">
                 <div class="skill-header">
                     <div class="skill-icon">🔍</div>
@@ -797,16 +1327,21 @@
                     <span class="skill-tag">Bug Reporting</span>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- ===== PROYEK ===== -->
     <section id="proyek" class="section">
-        <h2 class="section-title">Proyek Unggulan</h2>
-        <p class="section-subtitle">Karya dan project yang telah saya kerjakan</p>
-        <div class="projects-grid">
+        <h2 class="section-title" data-aos="fade-up">Proyek Unggulan</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Karya dan project yang telah saya kerjakan</p>
+        <div class="projects-grid" data-aos="fade-up" data-aos-delay="200">
+            
             <div class="project-card">
-                <div class="project-image">🌏</div>
+                <div class="project-image">
+                    <div style="font-size:4rem;">🌏</div>
+                    <span class="overlay-icon">🔍</span>
+                </div>
                 <h3>Website Wisata Indonesia</h3>
                 <span class="project-tag">Landing Page</span>
                 <p>Proyek Penilaian Akhir Semester 2 di PT. Humma Teknologi Indonesia. Saya bertanggung jawab penuh atas pengembangan front-end dari wireframe hingga deployment.</p>
@@ -814,8 +1349,12 @@
                     <i class="fas fa-external-link-alt"></i> Lihat Proyek
                 </a>
             </div>
+
             <div class="project-card">
-                <div class="project-image">🍣</div>
+                <div class="project-image">
+                    <div style="font-size:4rem;">🍣</div>
+                    <span class="overlay-icon">🔍</span>
+                </div>
                 <h3>Restoran Sakura</h3>
                 <span class="project-tag">Web Design</span>
                 <p>Website restoran Jepang yang menampilkan menu, tentang kami, dan informasi kontak. Dibangun dengan desain yang elegan dan responsif.</p>
@@ -823,8 +1362,12 @@
                     <i class="fas fa-external-link-alt"></i> Lihat Proyek
                 </a>
             </div>
+
             <div class="project-card">
-                <div class="project-image">🏐</div>
+                <div class="project-image">
+                    <div style="font-size:4rem;">🏐</div>
+                    <span class="overlay-icon">🔍</span>
+                </div>
                 <h3>Website Perlengkapan Voly</h3>
                 <span class="project-tag">E-Commerce</span>
                 <p>Website penjualan perlengkapan olahraga voli. Menampilkan berbagai produk seperti sepatu, jersey, dan aksesoris voli dengan desain modern.</p>
@@ -832,67 +1375,116 @@
                     <i class="fas fa-external-link-alt"></i> Lihat Proyek
                 </a>
             </div>
+
         </div>
     </section>
 
-    <!-- ===== SERTIFIKAT ===== -->
+    <!-- ============================================================
+    SERTIFIKAT - 5 SERTIFIKAT DENGAN FOTO THUMBNAIL
+    ============================================================ -->
     <section id="sertifikat" class="section">
-        <h2 class="section-title">Sertifikat & Skill Passport</h2>
-        <p class="section-subtitle">Bukti kompetensi dan pengakuan profesional</p>
-        <div class="cert-grid">
+        <h2 class="section-title" data-aos="fade-up">Sertifikat & Skill Passport</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Bukti kompetensi dan pengakuan profesional</p>
+        
+        <div class="cert-grid" data-aos="fade-up" data-aos-delay="200">
+            
             <div class="cert-card">
-                <span class="cert-icon">📜</span>
-                <h3>Sertifikat Kompetensi Java</h3>
+                <div class="cert-image">
+                    <div style="font-size:3rem;">📜</div>
+                </div>
+                <h3>Sertifikat Kompetensi Fundamental Java</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 20 Desember 2024</p>
-                <p class="cert-desc">Menunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (OOP) menggunakan bahasa Java.</p>
-                <button class="btn-cert-detail" onclick="alert('📜 Sertifikat Kompetensi Fundamental Java\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTanggal: 20 Desember 2024\n\nMenunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (OOP) menggunakan bahasa Java.')">
+                <p class="cert-desc">Menunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (<b>OOP</b>) menggunakan bahasa Java.</p>
+                <button class="btn-cert-detail" onclick="openCertModal(
+                    'Sertifikat Kompetensi Fundamental Java',
+                    '',
+                    'PT. Humma Teknologi Indonesia | 20 Desember 2024',
+                    'Menunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (OOP) menggunakan bahasa Java.'
+                )">
                     <i class="fas fa-eye"></i> Lihat Detail
                 </button>
             </div>
+
             <div class="cert-card">
-                <span class="cert-icon">🌐</span>
+                <div class="cert-image">
+                    <div style="font-size:3rem;">🌐</div>
+                </div>
                 <h3>Sertifikat Front End Web</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
                 <p class="cert-desc">Menunjukkan penguasaan dalam pembuatan antarmuka web yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Bootstrap.</p>
-                <button class="btn-cert-detail" onclick="alert('🌐 Sertifikat Front End Web\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTanggal: 14 Juli 2025\n\nMenunjukkan penguasaan dalam pembuatan antarmuka web yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Bootstrap.')">
+                <button class="btn-cert-detail" onclick="openCertModal(
+                    'Sertifikat Front End Web',
+                    '',
+                    'PT. Humma Teknologi Indonesia | 14 Juli 2025',
+                    'Menunjukkan penguasaan dalam pembuatan antarmuka web yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Bootstrap.'
+                )">
                     <i class="fas fa-eye"></i> Lihat Detail
                 </button>
             </div>
+
             <div class="cert-card">
-                <span class="cert-icon">⭐</span>
-                <h3>Skill Passport Front-End</h3>
+                <div class="cert-image">
+                    <div style="font-size:3rem;">⭐</div>
+                </div>
+                <h3>Skill Passport Front-End Web Developer</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
                 <p class="cert-desc">Menunjukkan penguasaan dalam pengembangan web front-end untuk membangun dan merancang antarmuka website yang statis dan dinamis.</p>
-                <button class="btn-cert-detail" onclick="alert('⭐ Skill Passport Front-End Web Developer\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTanggal: 14 Juli 2025\n\nMenunjukkan penguasaan dalam pengembangan web front-end untuk membangun dan merancang antarmuka website yang statis dan dinamis.')">
+                <button class="btn-cert-detail" onclick="openCertModal(
+                    'Skill Passport Front-End Web Developer',
+                    '',
+                    'PT. Humma Teknologi Indonesia | 14 Juli 2025',
+                    'Menunjukkan penguasaan dalam pengembangan web front-end untuk membangun dan merancang antarmuka website yang statis dan dinamis.'
+                )">
                     <i class="fas fa-eye"></i> Lihat Detail
                 </button>
             </div>
+
             <div class="cert-card">
-                <span class="cert-icon">🏆</span>
-                <h3>Apprenticeship Program QA</h3>
+                <div class="cert-image">
+                    <div style="font-size:3rem;">🏆</div>
+                </div>
+                <h3>Apprenticeship Program - Quality Assurance</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
-                <p class="cert-desc">Telah berhasil menyelesaikan program magang (Apprenticeship) di divisi Quality Assurance dengan predikat memuaskan.</p>
-                <button class="btn-cert-detail" onclick="alert('🏆 Apprenticeship Program - Quality Assurance\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTahun: 2026\n\nTelah berhasil menyelesaikan program magang (Apprenticeship) di divisi Quality Assurance dengan predikat memuaskan.')">
+                <p class="cert-desc">Telah berhasil menyelesaikan program magang (<b>Apprenticeship</b>) di divisi <b>Quality Assurance</b> dengan predikat memuaskan.</p>
+                <button class="btn-cert-detail" onclick="openCertModal(
+                    'Apprenticeship Program - Quality Assurance',
+                    '',
+                    'PT. Humma Teknologi Indonesia | 2026',
+                    'Telah berhasil menyelesaikan program magang (Apprenticeship) di divisi Quality Assurance dengan predikat memuaskan.'
+                )">
                     <i class="fas fa-eye"></i> Lihat Detail
                 </button>
             </div>
+
             <div class="cert-card">
-                <span class="cert-icon">🎯</span>
+                <div class="cert-image">
+                    <div style="font-size:3rem;">🎯</div>
+                </div>
                 <h3>Quality Assurance Intermediate</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
-                <p class="cert-desc">Penghargaan atas kontribusi dalam pembuatan Manajemen Tracking Alumni (Tracer Study) selama magang. Mendapat predikat Quality Assurance Tingkat Intermediate.</p>
-                <button class="btn-cert-detail" onclick="alert('🎯 Quality Assurance Intermediate\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTahun: 2026\n\nPenghargaan atas kontribusi dalam pembuatan Manajemen Tracking Alumni (Tracer Study) selama magang. Mendapat predikat Quality Assurance Tingkat Intermediate.')">
+                <p class="cert-desc">Penghargaan atas kontribusi dalam pembuatan <b>Manajemen Tracking Alumni (Tracer Study)</b> selama magang. Mendapat predikat <b>Quality Assurance Tingkat Intermediate</b>.</p>
+                <button class="btn-cert-detail" onclick="openCertModal(
+                    'Quality Assurance Intermediate',
+                    '',
+                    'PT. Humma Teknologi Indonesia | 2026',
+                    'Penghargaan atas kontribusi dalam pembuatan Manajemen Tracking Alumni (Tracer Study) selama magang. Mendapat predikat Quality Assurance Tingkat Intermediate.'
+                )">
                     <i class="fas fa-eye"></i> Lihat Detail
                 </button>
             </div>
+
         </div>
     </section>
 
-    <!-- ===== KONTAK ===== -->
+    <!-- ============================================================
+    KONTAK - 4 KOLOM DENGAN WARNA BERBEDA
+    ============================================================ -->
     <section id="kontak" class="section">
-        <h2 class="section-title">Mari Terhubung!</h2>
-        <p class="section-subtitle">Saya terbuka untuk diskusi teknis, kolaborasi proyek, atau sekadar berbagi pengalaman</p>
-        <div class="contact-grid">
+        <h2 class="section-title" data-aos="fade-up">Mari Terhubung!</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Saya terbuka untuk diskusi teknis, kolaborasi proyek, atau sekadar berbagi pengalaman</p>
+        <div class="contact-grid" data-aos="fade-up" data-aos-delay="200">
+            
+            <!-- EMAIL - BIRU -->
             <div class="contact-card contact-card-email">
                 <span class="icon">📧</span>
                 <h4>Email</h4>
@@ -901,14 +1493,20 @@
                     Kirim Pesan <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
+
+            <!-- WHATSAPP - HIJAU -->
             <div class="contact-card contact-card-wa">
-                <span class="icon-wa"><i class="fab fa-whatsapp"></i></span>
+                <span class="icon-wa">
+                    <i class="fab fa-whatsapp"></i>
+                </span>
                 <h4>WhatsApp</h4>
                 <p>+62 823-3788-4480</p>
                 <a href="https://wa.me/6282337884480?text=Halo%20Nika%2C%20saya%20tertarik%20dengan%20portofolio%20Anda" target="_blank" class="contact-link-wa">
                     <i class="fab fa-whatsapp"></i> Chat Sekarang
                 </a>
             </div>
+
+            <!-- GITHUB - HITAM -->
             <div class="contact-card contact-card-github">
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <h4>GitHub</h4>
@@ -917,6 +1515,8 @@
                     Lihat Repo <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
+
+            <!-- LINKEDIN - BIRU TUA -->
             <div class="contact-card contact-card-linkedin">
                 <span class="icon"><i class="fab fa-linkedin-in"></i></span>
                 <h4>LinkedIn</h4>
@@ -925,6 +1525,7 @@
                     Lihat Profil <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
+
         </div>
     </section>
 
@@ -933,8 +1534,8 @@
         <div class="footer-content">
             <div class="social-icons">
                 <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/nikakhairinnisa" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/nika-khairinnisa-07a867398/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
             <h3>Nika Khairinnisa</h3>
@@ -945,14 +1546,19 @@
     </footer>
 
     <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Hamburger menu
+        AOS.init({ duration: 800, once: true, offset: 100 });
+        
+        // ===== HAMBURGER MENU =====
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
+        
         hamburger.addEventListener('click', function() {
             this.classList.toggle('active');
             navLinks.classList.toggle('open');
         });
+        
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function() {
                 navLinks.classList.remove('open');
@@ -961,8 +1567,8 @@
                 this.classList.add('active');
             });
         });
-
-        // Scrollspy
+        
+        // ===== SCROLLSPY =====
         const sections = document.querySelectorAll('.section, .hero');
         window.addEventListener('scroll', function() {
             let current = '';
@@ -979,8 +1585,46 @@
                 }
             });
         });
-
-        // Smooth scroll
+        
+        // ===== MODAL SERTIFIKAT =====
+        function openCertModal(title, imageUrl, date, desc) {
+            const modal = document.getElementById('certModal');
+            const modalImage = document.getElementById('certModalImage');
+            const modalTitle = document.getElementById('certModalTitle');
+            const modalDate = document.getElementById('certModalDate');
+            const modalDesc = document.getElementById('certModalDesc');
+            
+            modalTitle.textContent = title;
+            modalDate.textContent = date;
+            modalDesc.textContent = desc;
+            
+            if (imageUrl && imageUrl !== '') {
+                modalImage.innerHTML = `<img src="${imageUrl}" alt="${title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'placeholder-icon\\'>📜</span>'">`;
+            } else {
+                modalImage.innerHTML = `<span class="placeholder-icon">📜</span>`;
+            }
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeCertModal() {
+            document.getElementById('certModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        document.getElementById('certModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCertModal();
+            }
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCertModal();
+            }
+        });
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -992,17 +1636,18 @@
                 }
             });
         });
-
-        // Close navbar on resize
+        
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 navLinks.classList.remove('open');
                 hamburger.classList.remove('active');
             }
         });
-
+        
         console.log('%c🚀 Portofolio Nika Khairinnisa', 'font-size: 20px; font-weight: bold; color: #7c3aed;');
         console.log('%c✨ Terima kasih sudah mengunjungi portofolio saya!', 'font-size: 14px; color: #4b5563;');
+        console.log('%c🔍 Saya adalah Quality Assurance Enthusiast!', 'font-size: 14px; color: #4b5563;');
+        console.log('%c📱 Hubungi saya melalui Email, WhatsApp, GitHub, atau LinkedIn!', 'font-size: 14px; color: #4b5563;');
     </script>
 
 </body>
