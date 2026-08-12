@@ -652,7 +652,7 @@
             height: 150px;
             border-radius: 15px;
             overflow: hidden;
-            background: #ede9fe;
+            background: linear-gradient(135deg, #ede9fe, #f3e8ff);
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -1222,8 +1222,8 @@
             <a href="#kontak" class="btn-primary"><i class="fas fa-paper-plane"></i> Mari Terhubung!</a>
         </div>
         <div class="hero-image" data-aos="fade-left">
-            <!-- ===== FOTO NIKA - PAKAI BASE64 ===== -->
-            <img src="data:image/png;base64,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" alt="Nika Khairinnisa">
+            <!-- ===== FOTO NIKA ===== -->
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect width='400' height='400' rx='30' fill='%23ede9fe'/%3E%3Ctext x='200' y='190' font-size='120' text-anchor='middle'%3E👩‍💻%3C/text%3E%3Ctext x='200' y='250' font-size='28' text-anchor='middle' fill='%237c3aed' font-weight='bold'%3ENika%3C/text%3E%3Ctext x='200' y='285' font-size='22' text-anchor='middle' fill='%236d28d9'%3EKhairinnisa%3C/text%3E%3C/svg%3E" alt="Nika Khairinnisa">
         </div>
     </section>
 
@@ -1331,15 +1331,19 @@
         </div>
     </section>
 
-    <!-- ===== PROYEK ===== -->
+    <!-- ============================================================
+    PROYEK - DENGAN GAMBAR
+    ============================================================ -->
     <section id="proyek" class="section">
         <h2 class="section-title" data-aos="fade-up">Proyek Unggulan</h2>
         <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Karya dan project yang telah saya kerjakan</p>
         <div class="projects-grid" data-aos="fade-up" data-aos-delay="200">
             
+            <!-- Proyek 1: Wisata -->
             <div class="project-card">
                 <div class="project-image">
-                    <div style="font-size:4rem;">🌏</div>
+                    <!-- Gambar Wisata -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23ede9fe'/%3E%3Ctext x='200' y='130' font-size='64' text-anchor='middle'%3E🌏%3C/text%3E%3Ctext x='200' y='185' font-size='20' text-anchor='middle' fill='%236d28d9' font-weight='bold'%3EWisata Indonesia%3C/text%3E%3C/svg%3E" alt="Website Wisata Indonesia">
                     <span class="overlay-icon">🔍</span>
                 </div>
                 <h3>Website Wisata Indonesia</h3>
@@ -1350,9 +1354,10 @@
                 </a>
             </div>
 
+            <!-- Proyek 2: Restoran -->
             <div class="project-card">
                 <div class="project-image">
-                    <div style="font-size:4rem;">🍣</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23f3e8ff'/%3E%3Ctext x='200' y='130' font-size='64' text-anchor='middle'%3E🍣%3C/text%3E%3Ctext x='200' y='185' font-size='20' text-anchor='middle' fill='%236d28d9' font-weight='bold'%3ERestoran Sakura%3C/text%3E%3C/svg%3E" alt="Restoran Sakura">
                     <span class="overlay-icon">🔍</span>
                 </div>
                 <h3>Restoran Sakura</h3>
@@ -1363,9 +1368,10 @@
                 </a>
             </div>
 
+            <!-- Proyek 3: Voly -->
             <div class="project-card">
                 <div class="project-image">
-                    <div style="font-size:4rem;">🏐</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e8f5e9'/%3E%3Ctext x='200' y='130' font-size='64' text-anchor='middle'%3E🏐%3C/text%3E%3Ctext x='200' y='185' font-size='20' text-anchor='middle' fill='%236d28d9' font-weight='bold'%3EPerlengkapan Voly%3C/text%3E%3C/svg%3E" alt="Website Perlengkapan Voly">
                     <span class="overlay-icon">🔍</span>
                 </div>
                 <h3>Website Perlengkapan Voly</h3>
@@ -1380,7 +1386,7 @@
     </section>
 
     <!-- ============================================================
-    SERTIFIKAT - 5 SERTIFIKAT DENGAN FOTO THUMBNAIL
+    SERTIFIKAT - 5 SERTIFIKAT DENGAN GAMBAR
     ============================================================ -->
     <section id="sertifikat" class="section">
         <h2 class="section-title" data-aos="fade-up">Sertifikat & Skill Passport</h2>
@@ -1390,7 +1396,7 @@
             
             <div class="cert-card">
                 <div class="cert-image">
-                    <div style="font-size:3rem;">📜</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' rx='15' fill='%23f5f3ff'/%3E%3Ctext x='150' y='110' font-size='80' text-anchor='middle'%3E📜%3C/text%3E%3Ctext x='150' y='155' font-size='14' text-anchor='middle' fill='%236d28d9'%3ESertifikat Java%3C/text%3E%3C/svg%3E" alt="Sertifikat Java" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'cert-icon\\'>📜</span>'">
                 </div>
                 <h3>Sertifikat Kompetensi Fundamental Java</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 20 Desember 2024</p>
@@ -1407,7 +1413,7 @@
 
             <div class="cert-card">
                 <div class="cert-image">
-                    <div style="font-size:3rem;">🌐</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' rx='15' fill='%23f5f3ff'/%3E%3Ctext x='150' y='110' font-size='80' text-anchor='middle'%3E🌐%3C/text%3E%3Ctext x='150' y='155' font-size='14' text-anchor='middle' fill='%236d28d9'%3EFront End%3C/text%3E%3C/svg%3E" alt="Sertifikat Front End" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'cert-icon\\'>🌐</span>'">
                 </div>
                 <h3>Sertifikat Front End Web</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
@@ -1424,7 +1430,7 @@
 
             <div class="cert-card">
                 <div class="cert-image">
-                    <div style="font-size:3rem;">⭐</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' rx='15' fill='%23f5f3ff'/%3E%3Ctext x='150' y='110' font-size='80' text-anchor='middle'%3E⭐%3C/text%3E%3Ctext x='150' y='155' font-size='14' text-anchor='middle' fill='%236d28d9'%3ESkill Passport%3C/text%3E%3C/svg%3E" alt="Skill Passport" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'cert-icon\\'>⭐</span>'">
                 </div>
                 <h3>Skill Passport Front-End Web Developer</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
@@ -1441,7 +1447,7 @@
 
             <div class="cert-card">
                 <div class="cert-image">
-                    <div style="font-size:3rem;">🏆</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' rx='15' fill='%23f5f3ff'/%3E%3Ctext x='150' y='110' font-size='80' text-anchor='middle'%3E🏆%3C/text%3E%3Ctext x='150' y='155' font-size='14' text-anchor='middle' fill='%236d28d9'%3EMagang QA%3C/text%3E%3C/svg%3E" alt="Sertifikat Magang" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'cert-icon\\'>🏆</span>'">
                 </div>
                 <h3>Apprenticeship Program - Quality Assurance</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
@@ -1458,7 +1464,7 @@
 
             <div class="cert-card">
                 <div class="cert-image">
-                    <div style="font-size:3rem;">🎯</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect width='300' height='200' rx='15' fill='%23f5f3ff'/%3E%3Ctext x='150' y='110' font-size='80' text-anchor='middle'%3E🎯%3C/text%3E%3Ctext x='150' y='155' font-size='14' text-anchor='middle' fill='%236d28d9'%3EQA Intermediate%3C/text%3E%3C/svg%3E" alt="Sertifikat QA" onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\\'cert-icon\\'>🎯</span>'">
                 </div>
                 <h3>Quality Assurance Intermediate</h3>
                 <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
