@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portofolio Nika Khairinnisa</title>
+    <!-- Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -23,10 +25,16 @@
             text-align: center;
             max-width: 600px;
             border: 1px solid #e9d5ff;
+            transition: 0.3s;
+        }
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(126, 34, 206, 0.2);
         }
         .avatar {
-            font-size: 4rem;
+            font-size: 4.5rem;
             margin-bottom: 15px;
+            display: block;
         }
         h1 {
             font-family: 'Playfair Display', serif;
@@ -44,16 +52,18 @@
             color: #4b5563;
             line-height: 1.8;
             margin-bottom: 25px;
+            font-size: 1rem;
         }
         .badge {
             display: inline-block;
-            background: #7c3aed;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
             color: white;
             padding: 8px 25px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.85rem;
             margin-bottom: 20px;
+            letter-spacing: 1px;
         }
         .btn {
             display: inline-block;
@@ -65,10 +75,15 @@
             font-weight: 600;
             transition: 0.3s;
             box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+        }
+        .btn i {
+            margin-right: 10px;
         }
         .divider {
             width: 60px;
@@ -80,7 +95,7 @@
         .links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
             margin-top: 20px;
             flex-wrap: wrap;
         }
@@ -89,20 +104,34 @@
             text-decoration: none;
             font-weight: 500;
             transition: 0.3s;
+            font-size: 0.95rem;
         }
         .links a:hover {
             color: #6d28d9;
+            transform: translateY(-2px);
+        }
+        .links a i {
+            margin-right: 6px;
         }
         .footer {
             margin-top: 25px;
             font-size: 0.8rem;
             color: #9ca3af;
         }
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+            .avatar { font-size: 3.5rem; }
+            .btn { padding: 12px 25px; font-size: 0.9rem; }
+            .links { gap: 15px; }
+            .links a { font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="avatar">👩‍💻</div>
+        <span class="avatar">👩‍💻</span>
         <div class="badge">✨ Portofolio</div>
         <h1>Nika Khairinnisa</h1>
         <p class="role">Software Engineering & Quality Assurance</p>
@@ -112,13 +141,22 @@
             <b>Quality Assurance Enthusiast</b> dan mahasiswa 
             <b>Rekayasa Perangkat Lunak</b> di SMKN 8 Jember.
         </p>
-        <a href="https://github.com/nikakhairinnisa" target="_blank" class="btn">
-            <i class="fab fa-github"></i> Lihat Portofolio
+        
+        <!-- ===== TOMBOL LIHAT PORTOFOLIO - DI PERBAIKI ===== -->
+        <a href="https://nikakhairinnisa.github.io/portfolio-nika/" target="_blank" class="btn">
+            <i class="fas fa-external-link-alt"></i> Lihat Portofolio
         </a>
+        
         <div class="links">
-            <a href="https://github.com/nikakhairinnisa" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/nika-khairinnisa-07a867398/" target="_blank">LinkedIn</a>
-            <a href="https://wa.me/6282337884480" target="_blank">WhatsApp</a>
+            <a href="https://github.com/nikakhairinnisa" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/nika-khairinnisa-07a867398/" target="_blank">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+            <a href="https://wa.me/6282337884480" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
         </div>
         <div class="footer">© 2026 Nika Khairinnisa. All rights reserved.</div>
     </div>
