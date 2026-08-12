@@ -3,152 +3,1024 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Nika Khairinnisa</title>
+    <title>Portofolio | Nika Khairinnisa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        /* ===== RESET & GLOBAL ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            font-family: 'Poppins', sans-serif;
+            background: #fdfcff;
+            color: #1e1b4b;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #ede9fe; border-radius: 50px; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #7c3aed, #a855f7); border-radius: 50px; }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 12px 30px;
+            border-radius: 60px;
+            box-shadow: 0 8px 32px rgba(126, 34, 206, 0.15);
+            border: 1px solid rgba(233, 213, 255, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: 0.3s;
+        }
+        .navbar:hover { box-shadow: 0 12px 40px rgba(126, 34, 206, 0.25); }
+        .nav-links { display: flex; align-items: center; gap: 25px; }
+        .nav-link {
+            color: #2e1065;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            position: relative;
+            padding: 5px 0;
+            white-space: nowrap;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2.5px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            transition: 0.4s ease;
+            border-radius: 10px;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link:hover { color: #7c3aed; }
+        .nav-link.active { color: #7c3aed; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background: #2e1065;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        .section {
+            min-height: 100vh;
+            padding: 120px 10%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2e1065;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #6d28d9;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            gap: 60px;
+            padding: 100px 10%;
+            background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
         }
-        .container {
-            background: white;
-            padding: 50px 40px;
-            border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(126, 34, 206, 0.15);
-            text-align: center;
-            max-width: 600px;
-            border: 1px solid #e9d5ff;
-            transition: 0.3s;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
-        .container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 30px 80px rgba(126, 34, 206, 0.2);
-        }
-        .avatar { font-size: 4.5rem; margin-bottom: 15px; display: block; }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #2e1065;
-            margin-bottom: 5px;
-        }
-        .role {
-            color: #7c3aed;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #4b5563;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 1rem;
-        }
-        .badge {
+        .hero-text { flex: 1; z-index: 1; }
+        .welcome-badge {
             display: inline-block;
             background: linear-gradient(90deg, #7c3aed, #a855f7);
             color: white;
-            padding: 8px 25px;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+            animation: pulseGlow 2s infinite;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .welcome-badge i { margin-right: 10px; animation: starSpin 4s linear infinite; }
+        @keyframes starSpin { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(124,58,237,0.4), 0 0 60px rgba(124,58,237,0.2); transform: scale(1); }
+            50% { box-shadow: 0 0 50px rgba(124,58,237,0.6), 0 0 80px rgba(124,58,237,0.3); transform: scale(1.03); }
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            color: #2e1065;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+        .hero h2 {
+            color: #6d28d9;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+        .hero p {
+            color: #4b5563;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 35px;
+            max-width: 550px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 35px;
+            max-width: 350px;
+        }
+        .stat-card {
+            background: white;
+            padding: 18px 15px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #ede9fe;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            transition: 0.3s;
+            cursor: default;
+        }
+        .stat-card:hover { transform: translateY(-5px); border-color: #7c3aed; }
+        .stat-card h3 { color: #7c3aed; font-size: 1.1rem; margin-bottom: 2px; }
+        .stat-card p { font-size: 0.7rem; color: #9ca3af; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            color: white;
+            border: none;
+            padding: 16px 45px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.4s;
+            box-shadow: 0 8px 25px rgba(124,58,237,0.4);
+            text-decoration: none;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(124,58,237,0.5); }
+        .btn-primary i { margin-right: 10px; }
+        .hero-image { flex-shrink: 0; z-index: 1; }
+        .hero-image img {
+            width: 380px;
+            border-radius: 30px;
+            box-shadow: 0 25px 50px rgba(126,34,206,0.2);
+            border: 5px solid white;
+            transition: 0.3s;
+        }
+        .hero-image img:hover { transform: scale(1.02); }
+
+        /* ===== TENTANG ===== */
+        #tentang { background: radial-gradient(circle at top right, #f3e8ff, #ffffff); }
+        .about-container {
+            display: flex;
+            gap: 50px;
+            align-items: stretch;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .about-profile {
+            flex: 0 0 320px;
+            background: white;
+            padding: 35px 30px;
+            border-radius: 40px;
+            border: 2px solid #e9d5ff;
+            box-shadow: 20px 20px 60px #dcd6e5, -20px -20px 60px #ffffff;
+            text-align: center;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .about-profile:hover { transform: translateY(-10px); }
+        .about-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            margin: 0 auto 15px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            box-shadow: 0 10px 30px rgba(124,58,237,0.3);
+            flex-shrink: 0;
+        }
+        .about-profile h3 { color: #1e1b4b; font-size: 1.5rem; margin-bottom: 2px; }
+        .about-profile .role { color: #7c3aed; font-weight: 600; font-size: 0.95rem; margin-bottom: 8px; }
+        .about-profile .school { font-size: 0.8rem; color: #6b7280; border-top: 1px solid #f3e8ff; padding-top: 12px; margin-top: 8px; width: 100%; }
+        .about-detail {
+            flex: 1;
+            background: white;
+            padding: 40px 45px;
+            border-radius: 40px;
+            border: 1px solid #e9d5ff;
+            box-shadow: 0 10px 40px rgba(126,34,206,0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .about-detail p { font-size: 1rem; line-height: 1.8; color: #374151; margin-bottom: 15px; }
+        .about-detail p:last-of-type { margin-bottom: 20px; }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .about-grid-item {
+            background: #f5f3ff;
+            padding: 18px 15px;
+            border-radius: 20px;
+            border: 1px solid #ddd6fe;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .about-grid-item:hover { background: #ede9fe; transform: scale(1.03); }
+        .about-grid-item h4 { color: #6d28d9; font-size: 1rem; margin-bottom: 2px; }
+        .about-grid-item p { font-size: 0.75rem; color: #6b7280; margin: 0; line-height: 1.4; }
+
+        /* ===== PENGALAMAN ===== */
+        #pengalaman { background: #ffffff; }
+        .experience-card {
+            background: white;
+            padding: 45px;
+            border-radius: 40px;
+            border: 1px solid #e9d5ff;
+            box-shadow: 0 20px 50px rgba(126,34,206,0.08);
+            max-width: 900px;
+            margin: 0 auto;
+            transition: 0.3s;
+        }
+        .experience-card:hover { transform: translateY(-5px); box-shadow: 0 25px 60px rgba(126,34,206,0.15); }
+        .exp-badge {
+            display: inline-block;
+            background: #7c3aed;
+            color: white;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .exp-badge i { margin-right: 8px; }
+        .experience-card h3 { font-size: 1.8rem; color: #1e1b4b; margin-bottom: 8px; }
+        .experience-card .company { color: #6d28d9; font-weight: 600; margin-bottom: 25px; font-size: 1.1rem; }
+        .exp-list { list-style: none; padding: 0; }
+        .exp-list li {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+        .exp-list li .check { color: #7c3aed; font-weight: bold; font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+
+        /* ===== KEAHLIAN ===== */
+        #keahlian { background: radial-gradient(circle at bottom left, #f5f3ff, #ffffff); }
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .skill-card {
+            background: white;
+            padding: 40px;
+            border-radius: 40px;
+            border: 1px solid #e9d5ff;
+            box-shadow: 0 20px 40px rgba(126,34,206,0.08);
+            transition: 0.3s;
+        }
+        .skill-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(126,34,206,0.15); }
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+        .skill-icon {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #ede9fe, #f3e8ff);
+            padding: 18px;
+            border-radius: 25px;
+            line-height: 1;
+            box-shadow: 0 8px 25px rgba(124,58,237,0.1);
+            transition: 0.3s;
+        }
+        .skill-card:hover .skill-icon { transform: scale(1.05) rotate(-5deg); }
+        .skill-card h3 { font-size: 1.6rem; color: #1e1b4b; font-weight: 700; }
+        .skill-card p { color: #4b5563; margin-bottom: 25px; line-height: 1.7; font-size: 0.95rem; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill-tag {
+            padding: 10px 22px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.85rem;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            transition: 0.3s;
+            cursor: default;
         }
-        .btn {
+        .skill-tag:hover { transform: scale(1.05) translateY(-3px); }
+        .skill-tag:nth-child(1) { background: #ede9fe; color: #7c3aed; }
+        .skill-tag:nth-child(2) { background: #fce4ec; color: #c62828; }
+        .skill-tag:nth-child(3) { background: #e3f2fd; color: #0d47a1; }
+        .skill-tag:nth-child(4) { background: #e8f5e9; color: #2e7d32; }
+        .skill-tag:nth-child(5) { background: #fff3e0; color: #e65100; }
+
+        /* ===== PROYEK ===== */
+        #proyek { background: #ffffff; }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .project-card {
+            background: white;
+            border-radius: 30px;
+            border: 1px solid #e9d5ff;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(126,34,206,0.08);
+            transition: 0.4s;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(126,34,206,0.15); border-color: #7c3aed; }
+        .project-image {
+            height: 200px;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ede9fe, #f3e8ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .project-card h3 { font-size: 1.2rem; color: #1e1b4b; margin-bottom: 5px; line-height: 1.3; }
+        .project-tag {
+            display: inline-block;
+            background: #f5f3ff;
+            color: #7c3aed;
+            padding: 4px 16px;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+        .project-card p { color: #4b5563; font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px; flex: 1; }
+        .btn-view-project {
             display: inline-block;
             background: linear-gradient(90deg, #7c3aed, #a855f7);
             color: white;
-            padding: 14px 40px;
+            padding: 12px 30px;
             border-radius: 50px;
-            text-decoration: none;
+            font-size: 0.9rem;
             font-weight: 600;
-            transition: 0.3s;
-            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+            text-decoration: none;
+            transition: 0.4s;
+            box-shadow: 0 8px 25px rgba(124,58,237,0.3);
+            text-align: center;
             border: none;
             cursor: pointer;
+            margin-top: auto;
         }
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(124, 58, 237, 0.4);
+        .btn-view-project:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(124,58,237,0.4); }
+        .btn-view-project i { margin-right: 8px; }
+
+        /* ===== SERTIFIKAT ===== */
+        #sertifikat { background: radial-gradient(circle at top left, #f5f3ff, #ffffff); }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
         }
-        .btn i { margin-right: 10px; }
-        .divider {
-            width: 60px;
-            height: 3px;
+        .cert-card {
+            background: white;
+            padding: 20px 18px;
+            border-radius: 25px;
+            border: 1px solid #ede9fe;
+            box-shadow: 0 10px 25px rgba(126,34,206,0.08);
+            transition: 0.4s;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .cert-card:hover { transform: translateY(-10px) scale(1.02); border-color: #7c3aed; box-shadow: 0 20px 50px rgba(126,34,206,0.15); }
+        .cert-icon { font-size: 2.8rem; margin-bottom: 8px; display: block; }
+        .cert-card h3 { font-size: 1rem; color: #1e1b4b; margin-bottom: 6px; line-height: 1.3; min-height: 45px; }
+        .cert-card .cert-date { font-size: 0.7rem; color: #7c3aed; font-weight: 600; }
+        .cert-card .cert-desc { font-size: 0.8rem; color: #6b7280; margin-top: 10px; line-height: 1.5; flex: 1; }
+        .btn-cert-detail {
+            display: inline-block;
             background: linear-gradient(90deg, #7c3aed, #a855f7);
-            margin: 15px auto;
-            border-radius: 10px;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.4s;
+            box-shadow: 0 6px 20px rgba(124,58,237,0.25);
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            align-self: center;
         }
-        .links {
+        .btn-cert-detail:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(124,58,237,0.35); }
+        .btn-cert-detail i { margin-right: 6px; }
+
+        /* ===== KONTAK ===== */
+        #kontak { background: linear-gradient(135deg, #fdfcff 0%, #ede9fe 100%); }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .contact-card {
+            background: white;
+            padding: 35px 20px;
+            border-radius: 30px;
+            border: 2px solid #e9d5ff;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(126,34,206,0.08);
+            transition: 0.4s;
+        }
+        .contact-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(126,34,206,0.15); }
+        .contact-card .icon { font-size: 2.8rem; margin-bottom: 15px; display: block; }
+        .contact-card h4 { font-size: 1.1rem; margin-bottom: 5px; font-weight: 700; }
+        .contact-card p { font-weight: 500; font-size: 0.85rem; margin-bottom: 12px; word-break: break-all; color: #4b5563; }
+        .contact-link {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: 0.3s;
+            padding: 8px 25px;
+            border-radius: 50px;
+            border: 2px solid transparent;
+        }
+        .contact-link:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+        .contact-link i { transition: 0.3s; margin-left: 5px; }
+        .contact-link:hover i { transform: translateX(5px); }
+        /* Warna kontak */
+        .contact-card-email { border-color: #3b82f6; }
+        .contact-card-email:hover { border-color: #2563eb; box-shadow: 0 25px 50px rgba(59,130,246,0.15); }
+        .contact-card-email .icon { color: #3b82f6; }
+        .contact-card-email h4 { color: #2563eb; }
+        .contact-link-email { color: #3b82f6; border-color: #93c5fd; }
+        .contact-link-email:hover { background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; border-color: #3b82f6; }
+
+        .contact-card-wa { border-color: #25D366; background: linear-gradient(135deg, #ffffff, #f0faf0); }
+        .contact-card-wa:hover { border-color: #128C7E; box-shadow: 0 25px 50px rgba(37,211,102,0.2); }
+        .contact-card-wa .icon-wa { font-size: 3.2rem; display: block; margin-bottom: 12px; color: #25D366; animation: waPulse 2s ease-in-out infinite; }
+        @keyframes waPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .contact-card-wa h4 { color: #128C7E; }
+        .contact-card-wa p { font-weight: 600; font-size: 1rem; letter-spacing: 0.5px; }
+        .contact-link-wa {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            padding: 10px 35px;
+            border-radius: 50px;
+            transition: 0.4s;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.3);
+            border: none;
+        }
+        .contact-link-wa:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(37,211,102,0.5); }
+        .contact-link-wa i { margin-right: 8px; transition: 0.3s; }
+        .contact-link-wa:hover i { transform: scale(1.2); }
+
+        .contact-card-github { border-color: #6b7280; }
+        .contact-card-github:hover { border-color: #1f2937; box-shadow: 0 25px 50px rgba(31,41,55,0.15); }
+        .contact-card-github .icon { color: #1f2937; }
+        .contact-card-github h4 { color: #1f2937; }
+        .contact-link-github { color: #1f2937; border-color: #9ca3af; }
+        .contact-link-github:hover { background: linear-gradient(135deg, #1f2937, #111827); color: white; border-color: #1f2937; }
+
+        .contact-card-linkedin { border-color: #0a66c2; }
+        .contact-card-linkedin:hover { border-color: #004182; box-shadow: 0 25px 50px rgba(10,102,194,0.15); }
+        .contact-card-linkedin .icon { color: #0a66c2; }
+        .contact-card-linkedin h4 { color: #004182; }
+        .contact-link-linkedin { color: #0a66c2; border-color: #8bb9e8; }
+        .contact-link-linkedin:hover { background: linear-gradient(135deg, #0a66c2, #004182); color: white; border-color: #0a66c2; }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, #2e1065, #4c1d95);
+            color: #ffffff;
+            padding: 35px 10% 30px;
+            text-align: center;
+            border-top: 3px solid #7c3aed;
+        }
+        footer .footer-content { max-width: 800px; margin: 0 auto; }
+        footer h3 { font-size: 1.5rem; font-weight: 700; color: #ffffff; letter-spacing: 0.5px; margin-bottom: 8px; }
+        footer .footer-desc { color: #c4b5fd; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; max-width: 450px; margin-left: auto; margin-right: auto; }
+        footer .divider { width: 50px; height: 2px; background: #a78bfa; margin: 0 auto 15px; border-radius: 10px; }
+        footer .copyright { font-size: 0.75rem; color: #8b7bb8; letter-spacing: 0.5px; }
+        footer .social-icons {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 20px;
-            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 12px;
         }
-        .links a {
-            color: #7c3aed;
-            text-decoration: none;
-            font-weight: 500;
+        footer .social-icons a {
+            color: #c4b5fd;
+            font-size: 1.1rem;
             transition: 0.3s;
-            font-size: 0.95rem;
+            text-decoration: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .links a:hover {
-            color: #6d28d9;
-            transform: translateY(-2px);
+        footer .social-icons a:hover { color: #ffffff; background: rgba(124,58,237,0.4); transform: translateY(-3px); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero-image img { width: 300px; }
+            .about-container { flex-direction: column; align-items: center; }
+            .about-profile { flex: none; width: 100%; max-width: 400px; padding: 30px; }
+            .about-detail { padding: 30px; }
+            .skills-container { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .cert-grid { grid-template-columns: repeat(2, 1fr); max-width: 700px; }
+            .contact-grid { grid-template-columns: repeat(2, 1fr); max-width: 600px; }
+            .section-title { font-size: 2.5rem; }
         }
-        .links a i { margin-right: 6px; }
-        .footer {
-            margin-top: 25px;
-            font-size: 0.8rem;
-            color: #9ca3af;
+        @media (max-width: 768px) {
+            .navbar { padding: 10px 20px; gap: 0; top: 10px; width: 92%; justify-content: space-between; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                right: 0;
+                padding: 20px;
+                border-radius: 20px;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+                gap: 15px;
+                border: 1px solid #e9d5ff;
+            }
+            .nav-links.open { display: flex; }
+            .hamburger { display: flex; }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 120px 5% 60px;
+                gap: 30px;
+            }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { margin-left: auto; margin-right: auto; max-width: 100%; }
+            .stats-grid { margin-left: auto; margin-right: auto; max-width: 100%; }
+            .hero-image img { width: 250px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .about-detail { padding: 25px; }
+            .experience-card { padding: 25px; }
+            .skill-card { padding: 25px; }
+            .section { padding: 100px 5%; }
+            .section-title { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .cert-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .contact-grid { grid-template-columns: 1fr; max-width: 350px; }
+            footer { padding: 25px 5% 20px; }
+            footer h3 { font-size: 1.2rem; }
+            footer .footer-desc { font-size: 0.8rem; }
+            .welcome-badge { font-size: 0.9rem; padding: 10px 25px; }
+            .skill-icon { font-size: 2.2rem; padding: 14px; }
+            .about-avatar { width: 100px; height: 100px; font-size: 3rem; }
         }
         @media (max-width: 480px) {
-            .container { padding: 30px 20px; }
-            h1 { font-size: 1.8rem; }
-            .avatar { font-size: 3.5rem; }
-            .btn { padding: 12px 25px; font-size: 0.9rem; }
-            .links { gap: 15px; }
-            .links a { font-size: 0.8rem; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1.1rem; }
+            .stats-grid { grid-template-columns: 1fr; max-width: 200px; }
+            .btn-primary { padding: 14px 30px; font-size: 0.9rem; }
+            .hero-image img { width: 200px; }
+            .about-profile { padding: 20px; }
+            .about-profile .about-avatar { width: 90px; height: 90px; font-size: 2.5rem; }
+            .contact-card { padding: 25px 15px; }
+            .contact-card .icon { font-size: 2.2rem; }
+            .contact-card-wa .icon-wa { font-size: 2.6rem; }
+            .contact-card-wa .contact-link-wa { padding: 8px 20px; font-size: 0.8rem; }
+            .btn-view-project { padding: 10px 20px; font-size: 0.8rem; }
+            .btn-cert-detail { padding: 6px 16px; font-size: 0.7rem; }
+            .cert-image { height: 120px; }
+            .skill-tag { font-size: 0.75rem; padding: 6px 14px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="avatar">👩‍💻</span>
-        <div class="badge">✨ Portofolio</div>
-        <h1>Nika Khairinnisa</h1>
-        <p class="role">Software Engineering & Quality Assurance</p>
-        <div class="divider"></div>
-        <p>
-            Selamat datang di portofolio saya! Saya adalah seorang 
-            <b>Quality Assurance Enthusiast</b> dan mahasiswa 
-            <b>Rekayasa Perangkat Lunak</b> di SMKN 8 Jember.
-        </p>
-        
-        <!-- ===== TOMBOL LIHAT PORTOFOLIO - SUDAH BENAR ===== -->
-        <a href="https://nikakhairinnisa.github.io/portfolio-nika/" target="_blank" class="btn">
-            <i class="fas fa-external-link-alt"></i> Lihat Portofolio
-        </a>
-        
-        <div class="links">
-            <a href="https://github.com/nikakhairinnisa" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/nika-khairinnisa-07a867398/" target="_blank">
-                <i class="fab fa-linkedin-in"></i> LinkedIn
-            </a>
-            <a href="https://wa.me/6282337884480" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-links" id="navLinks">
+            <a href="#beranda" class="nav-link active">Beranda</a>
+            <a href="#tentang" class="nav-link">Tentang</a>
+            <a href="#pengalaman" class="nav-link">Pengalaman</a>
+            <a href="#keahlian" class="nav-link">Keahlian</a>
+            <a href="#proyek" class="nav-link">Proyek</a>
+            <a href="#sertifikat" class="nav-link">Sertifikat</a>
+            <a href="#kontak" class="nav-link">Kontak</a>
         </div>
-        <div class="footer">© 2026 Nika Khairinnisa. All rights reserved.</div>
-    </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- ===== BERANDA ===== -->
+    <section id="beranda" class="hero">
+        <div class="hero-text">
+            <div class="welcome-badge"><i class="fas fa-star"></i> ✨ Selamat Datang ✨</div>
+            <h1>Nika Khairinnisa</h1>
+            <h2>Software Engineering & Quality Assurance</h2>
+            <p>Halo! Saya senang Anda berkunjung. Ini adalah ruang digital tempat saya membagikan perjalanan belajar saya di bidang rekayasa perangkat lunak dan keahlian khusus penjaminan mutu aplikasi.</p>
+            <div class="stats-grid">
+                <div class="stat-card"><h3>Software Engineering</h3><p>Rekayasa Perangkat Lunak</p></div>
+                <div class="stat-card"><h3>Quality Assurance</h3><p>Penjaminan Mutu</p></div>
+            </div>
+            <a href="#kontak" class="btn-primary"><i class="fas fa-paper-plane"></i> Mari Terhubung!</a>
+        </div>
+        <div class="hero-image">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='380'%3E%3Crect width='380' height='380' rx='30' fill='%23ede9fe'/%3E%3Ctext x='190' y='180' font-size='100' text-anchor='middle'%3E👩‍💻%3C/text%3E%3Ctext x='190' y='230' font-size='20' text-anchor='middle' fill='%237c3aed'%3ENika Khairinnisa%3C/text%3E%3C/svg%3E" alt="Nika Khairinnisa">
+        </div>
+    </section>
+
+    <!-- ===== TENTANG ===== -->
+    <section id="tentang" class="section">
+        <h2 class="section-title">Tentang Saya</h2>
+        <p class="section-subtitle">Mengenal lebih dekat perjalanan dan passion saya</p>
+        <div class="about-container">
+            <div class="about-profile">
+                <div class="about-avatar">👩‍💻</div>
+                <h3>Nika Khairinnisa</h3>
+                <p class="role">✨ Quality Assurance Enthusiast</p>
+                <div class="school">
+                    <p style="font-size:0.85rem;color:#4b5563;margin:0;">
+                        <i class="fas fa-graduation-cap"></i> SMKN 8 Jember | Rekayasa Perangkat Lunak
+                    </p>
+                </div>
+            </div>
+            <div class="about-detail">
+                <p>
+                    Saya adalah seorang <b>Quality Assurance Enthusiast</b> yang berdedikasi untuk memastikan 
+                    setiap produk perangkat lunak yang dihasilkan memiliki kualitas terbaik. Dengan latar belakang 
+                    di bidang <b>Rekayasa Perangkat Lunak</b>, saya memiliki pemahaman mendalam tentang siklus 
+                    pengembangan perangkat lunak dan pentingnya <i>pengujian yang menyeluruh</i>.
+                </p>
+                <p>
+                    🎯 Ketertarikan saya pada <i>Quality Assurance</i> lahir dari keinginan untuk menciptakan 
+                    produk digital yang tidak hanya berfungsi dengan baik, tetapi juga memberikan 
+                    <b>pengalaman pengguna yang luar biasa</b>. Saya percaya bahwa detail kecil dalam pengujian dapat 
+                    membuat perbedaan besar pada kualitas akhir sebuah produk.
+                </p>
+                <div class="about-grid">
+                    <div class="about-grid-item">
+                        <h4>💻 Software Engineering</h4>
+                        <p>Rekayasa Perangkat Lunak</p>
+                    </div>
+                    <div class="about-grid-item">
+                        <h4>🔍 Quality Assurance</h4>
+                        <p>Testing & Bug Tracking</p>
+                    </div>
+                    <div class="about-grid-item">
+                        <h4>🛠️ Tools</h4>
+                        <p>Cypress, Postman, Git</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PENGALAMAN ===== -->
+    <section id="pengalaman" class="section">
+        <h2 class="section-title">Pengalaman Industri</h2>
+        <p class="section-subtitle">Perjalanan belajar dan karir di dunia Rekayasa Perangkat Lunak</p>
+        <div class="experience-card">
+            <div class="exp-badge"><i class="fas fa-calendar-alt"></i> 2024 - 2026</div>
+            <h3>Rekayasa Perangkat Lunak</h3>
+            <p class="company">SMKN 8 Jember & PT Humma Teknologi Indonesia</p>
+            <ul class="exp-list">
+                <li><span class="check">✓</span><span><b>2024 - Sekarang</b> | Menempuh pendidikan di SMKN 8 Jember jurusan <b>Rekayasa Perangkat Lunak (RPL)</b>. Mendalami dasar-dasar pemrograman, pengembangan web, dan siklus hidup perangkat lunak.</span></li>
+                <li><span class="check">✓</span><span><b>Kelas Industri</b> | SMKN 8 Jember bekerja sama dengan <b>PT Humma Teknologi Indonesia</b> dalam program kelas industri. Saya aktif mengikuti pembelajaran dan berhasil mengerjakan berbagai soal-soal kelas industri, termasuk membuat <b>website sederhana</b> sebagai bentuk implementasi kompetensi.</span></li>
+                <li><span class="check">✓</span><span><b>Kelas 11 Semester 2</b> | Menjalani <b>Praktik Kerja Lapangan (PKL)</b> di PT Humma Teknologi Indonesia. Saya ditempatkan di divisi <b>Quality Assurance (QA)</b> selama 6 bulan untuk mendalami pengujian perangkat lunak.</span></li>
+                <li><span class="check">✓</span><span><b>Pengalaman QA</b> | Selama PKL, saya terlibat dalam <b>pengujian fungsional</b> aplikasi, <b>pelaporan bug</b>, <b>pengujian regresi</b>, dan <b>kolaborasi</b> dengan tim developer untuk memastikan kualitas produk yang dihasilkan.</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===== KEAHLIAN ===== -->
+    <section id="keahlian" class="section">
+        <h2 class="section-title">Keahlian & Tools</h2>
+        <p class="section-subtitle">Kompetensi yang saya kuasai di bidang pengembangan dan pengujian perangkat lunak</p>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Web Development</h3>
+                </div>
+                <p>Kemampuan dalam membuat website sederhana menggunakan teknologi dasar pengembangan web.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Responsive</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-header">
+                    <div class="skill-icon">🔍</div>
+                    <h3>Quality Assurance</h3>
+                </div>
+                <p>Keahlian dalam memastikan kualitas perangkat lunak melalui berbagai metode pengujian modern.</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">📋 Test Case</span>
+                    <span class="skill-tag">🐛 Bug Finding</span>
+                    <span class="skill-tag">🤖 Cypress</span>
+                    <span class="skill-tag">Manual Testing</span>
+                    <span class="skill-tag">Bug Reporting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROYEK ===== -->
+    <section id="proyek" class="section">
+        <h2 class="section-title">Proyek Unggulan</h2>
+        <p class="section-subtitle">Karya dan project yang telah saya kerjakan</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">🌏</div>
+                <h3>Website Wisata Indonesia</h3>
+                <span class="project-tag">Landing Page</span>
+                <p>Proyek Penilaian Akhir Semester 2 di PT. Humma Teknologi Indonesia. Saya bertanggung jawab penuh atas pengembangan front-end dari wireframe hingga deployment.</p>
+                <a href="https://website-wisata-uq44.vercel.app/" target="_blank" class="btn-view-project">
+                    <i class="fas fa-external-link-alt"></i> Lihat Proyek
+                </a>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🍣</div>
+                <h3>Restoran Sakura</h3>
+                <span class="project-tag">Web Design</span>
+                <p>Website restoran Jepang yang menampilkan menu, tentang kami, dan informasi kontak. Dibangun dengan desain yang elegan dan responsif.</p>
+                <a href="https://nikakhairinnisa.github.io/resto-sakura/" target="_blank" class="btn-view-project">
+                    <i class="fas fa-external-link-alt"></i> Lihat Proyek
+                </a>
+            </div>
+            <div class="project-card">
+                <div class="project-image">🏐</div>
+                <h3>Website Perlengkapan Voly</h3>
+                <span class="project-tag">E-Commerce</span>
+                <p>Website penjualan perlengkapan olahraga voli. Menampilkan berbagai produk seperti sepatu, jersey, dan aksesoris voli dengan desain modern.</p>
+                <a href="https://nikakhairinnisa.github.io/website-perlengkapan_voly/" target="_blank" class="btn-view-project">
+                    <i class="fas fa-external-link-alt"></i> Lihat Proyek
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERTIFIKAT ===== -->
+    <section id="sertifikat" class="section">
+        <h2 class="section-title">Sertifikat & Skill Passport</h2>
+        <p class="section-subtitle">Bukti kompetensi dan pengakuan profesional</p>
+        <div class="cert-grid">
+            <div class="cert-card">
+                <span class="cert-icon">📜</span>
+                <h3>Sertifikat Kompetensi Java</h3>
+                <p class="cert-date">PT. Humma Teknologi Indonesia | 20 Desember 2024</p>
+                <p class="cert-desc">Menunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (OOP) menggunakan bahasa Java.</p>
+                <button class="btn-cert-detail" onclick="alert('📜 Sertifikat Kompetensi Fundamental Java\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTanggal: 20 Desember 2024\n\nMenunjukkan penguasaan dasar-dasar pemrograman berorientasi objek (OOP) menggunakan bahasa Java.')">
+                    <i class="fas fa-eye"></i> Lihat Detail
+                </button>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon">🌐</span>
+                <h3>Sertifikat Front End Web</h3>
+                <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
+                <p class="cert-desc">Menunjukkan penguasaan dalam pembuatan antarmuka web yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Bootstrap.</p>
+                <button class="btn-cert-detail" onclick="alert('🌐 Sertifikat Front End Web\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTanggal: 14 Juli 2025\n\nMenunjukkan penguasaan dalam pembuatan antarmuka web yang responsif dan interaktif menggunakan HTML, CSS, JavaScript, dan Bootstrap.')">
+                    <i class="fas fa-eye"></i> Lihat Detail
+                </button>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon">⭐</span>
+                <h3>Skill Passport Front-End</h3>
+                <p class="cert-date">PT. Humma Teknologi Indonesia | 14 Juli 2025</p>
+                <p class="cert-desc">Menunjukkan penguasaan dalam pengembangan web front-end untuk membangun dan merancang antarmuka website yang statis dan dinamis.</p>
+                <button class="btn-cert-detail" onclick="alert('⭐ Skill Passport Front-End Web Developer\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTanggal: 14 Juli 2025\n\nMenunjukkan penguasaan dalam pengembangan web front-end untuk membangun dan merancang antarmuka website yang statis dan dinamis.')">
+                    <i class="fas fa-eye"></i> Lihat Detail
+                </button>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon">🏆</span>
+                <h3>Apprenticeship Program QA</h3>
+                <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
+                <p class="cert-desc">Telah berhasil menyelesaikan program magang (Apprenticeship) di divisi Quality Assurance dengan predikat memuaskan.</p>
+                <button class="btn-cert-detail" onclick="alert('🏆 Apprenticeship Program - Quality Assurance\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTahun: 2026\n\nTelah berhasil menyelesaikan program magang (Apprenticeship) di divisi Quality Assurance dengan predikat memuaskan.')">
+                    <i class="fas fa-eye"></i> Lihat Detail
+                </button>
+            </div>
+            <div class="cert-card">
+                <span class="cert-icon">🎯</span>
+                <h3>Quality Assurance Intermediate</h3>
+                <p class="cert-date">PT. Humma Teknologi Indonesia | 2026</p>
+                <p class="cert-desc">Penghargaan atas kontribusi dalam pembuatan Manajemen Tracking Alumni (Tracer Study) selama magang. Mendapat predikat Quality Assurance Tingkat Intermediate.</p>
+                <button class="btn-cert-detail" onclick="alert('🎯 Quality Assurance Intermediate\n\nDikeluarkan oleh PT. Humma Teknologi Indonesia\nTahun: 2026\n\nPenghargaan atas kontribusi dalam pembuatan Manajemen Tracking Alumni (Tracer Study) selama magang. Mendapat predikat Quality Assurance Tingkat Intermediate.')">
+                    <i class="fas fa-eye"></i> Lihat Detail
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== KONTAK ===== -->
+    <section id="kontak" class="section">
+        <h2 class="section-title">Mari Terhubung!</h2>
+        <p class="section-subtitle">Saya terbuka untuk diskusi teknis, kolaborasi proyek, atau sekadar berbagi pengalaman</p>
+        <div class="contact-grid">
+            <div class="contact-card contact-card-email">
+                <span class="icon">📧</span>
+                <h4>Email</h4>
+                <p>nika.khairinnisa00@gmail.com</p>
+                <a href="mailto:nika.khairinnisa00@gmail.com" class="contact-link contact-link-email">
+                    Kirim Pesan <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="contact-card contact-card-wa">
+                <span class="icon-wa"><i class="fab fa-whatsapp"></i></span>
+                <h4>WhatsApp</h4>
+                <p>+62 823-3788-4480</p>
+                <a href="https://wa.me/6282337884480?text=Halo%20Nika%2C%20saya%20tertarik%20dengan%20portofolio%20Anda" target="_blank" class="contact-link-wa">
+                    <i class="fab fa-whatsapp"></i> Chat Sekarang
+                </a>
+            </div>
+            <div class="contact-card contact-card-github">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <h4>GitHub</h4>
+                <p>@nikakhairinnisa</p>
+                <a href="https://github.com/nikakhairinnisa" target="_blank" class="contact-link contact-link-github">
+                    Lihat Repo <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="contact-card contact-card-linkedin">
+                <span class="icon"><i class="fab fa-linkedin-in"></i></span>
+                <h4>LinkedIn</h4>
+                <p>Nika Khairinnisa</p>
+                <a href="https://www.linkedin.com/in/nika-khairinnisa-07a867398/" target="_blank" class="contact-link contact-link-linkedin">
+                    Lihat Profil <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/nikakhairinnisa" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nika-khairinnisa-07a867398/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <h3>Nika Khairinnisa</h3>
+            <p class="footer-desc">Quality Assurance Enthusiast | Membangun kualitas digital</p>
+            <div class="divider"></div>
+            <p class="copyright">© 2026 Nika Khairinnisa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('active');
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Scrollspy
+        const sections = document.querySelectorAll('.section, .hero');
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Close navbar on resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        console.log('%c🚀 Portofolio Nika Khairinnisa', 'font-size: 20px; font-weight: bold; color: #7c3aed;');
+        console.log('%c✨ Terima kasih sudah mengunjungi portofolio saya!', 'font-size: 14px; color: #4b5563;');
+    </script>
+
 </body>
 </html>
